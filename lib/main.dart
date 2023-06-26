@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
+//テストコメント
+
 Future<void> main() async{
   // main関数内で非同期処理を呼び出すための設定
   WidgetsFlutterBinding.ensureInitialized();
