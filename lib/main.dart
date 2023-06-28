@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:dart_openai/dart_openai.dart';
 
 //テストコメント
 
@@ -18,14 +20,48 @@ Future<void> main() async{
   // 取得できているか確認
   print(firstCamera);
 
+
+
+  // .evnから環境変数を読み込む
+  await dotenv.load(fileName: '.env');
+  OpenAI.apiKey = dotenv.get('OPEN_AI_API_KEY');
+  //使用してみる
+  final completion = await OpenAI.instance.chat.create(
+    model: "gpt-3.5-turbo",
+    messages: [
+      OpenAIChatCompletionChoiceMessageModel(
+        content: "hello, what is Flutter and Dart ?",
+        role: OpenAIChatMessageRole.user,
+      ),
+    ],
+  );
+  print(completion.choices.first.message);
+
+  OpenAIChatCompletionModel chatCompletion = await OpenAI.instance.chat.create(
+    model: "gpt-3.5-turbo",
+    messages: [
+      OpenAIChatCompletionChoiceMessageModel(
+        content: "hello, what is Flutter and Dart ?",
+        role: OpenAIChatMessageRole.user,
+      ),
+    ],
+  );
+  print(chatCompletion.choices.first.message);
+
+
+
+
   runApp(MyApp(camera: firstCamera));
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({
     Key? key,
     required this.camera,
   }):super(key: key);
+
 
   final CameraDescription camera;
 

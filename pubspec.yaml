@@ -34,6 +34,8 @@ dependencies:
   path_provider: ^2.0.9
   path: ^1.8.0
   cupertino_icons: ^1.0.2
+  flutter_dotenv: ^5.0.2
+  dart_openai: ^3.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
