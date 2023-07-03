@@ -19,7 +19,7 @@ class Test1Page extends StatelessWidget {
           Text("モデルテスト：" + isTrue(true)),
           ElevatedButton(
               onPressed: (){
-                Navigator.pushNamed(context, '/2page', arguments: Test1ToTest2("テストだよ", 1));
+                Navigator.pushNamed(context, '/test2page', arguments: Test1ToTest2("テストだよ", 1));
               },
               child: Text("次のページへ"),
           ),

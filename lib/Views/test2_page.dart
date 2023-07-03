@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../Arguments/test1_to_test2.dart';
 
 class Test2Page extends StatelessWidget {
-  const Test2Page({Key? key}) : super(key: key);
+  int? testNum;
+  Test2Page({this.testNum, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class Test2Page extends StatelessWidget {
         children: [
           Text("成功"),
           Text(args.test),
-          Text("${args.num}")
+          Text("${this.testNum}")
         ],
       ),
     );
