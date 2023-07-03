@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Modeles/test1_model.dart';
+
 class Test1Page extends StatelessWidget {
   final String testVariable;
   Test1Page({required this.testVariable, Key? key}) : super(key: key);
@@ -12,7 +14,8 @@ class Test1Page extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Text(testVariable)
+          Text("受け渡しテスト" + testVariable),
+          Text("モデルテスト：" + isTrue(true)),
         ],
       ),
     );
