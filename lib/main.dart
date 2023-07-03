@@ -16,10 +16,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.cyan,
       ),
-      initialRoute: '/',
+      initialRoute: '/test',
       routes: {
-        '/': (context) => Test1Controller(),
-        '/2page': (context) => Test2Controller(),
+        '/': (context) => SizedBox(),
+        '/test': (context) => Test1Controller(),
+        '/test2page': (context) => Test2Controller(),
       },
     );
   }
