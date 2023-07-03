@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      title: "ひややっ庫",
+      theme: ThemeData(
+        primaryColor: Colors.cyan,
+      ),
+      routes: {
+        '/': (context) => SizedBox(),
+      },
+    );
   }
 }
