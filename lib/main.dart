@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hiyayakko/Controllers/test1_controller.dart';
 
+import 'Controllers/test2_controller.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -14,8 +16,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.cyan,
       ),
+      initialRoute: '/',
       routes: {
         '/': (context) => Test1Controller(),
+        '/2page': (context) => Test2Controller(),
       },
     );
   }

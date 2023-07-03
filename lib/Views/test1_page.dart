@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Arguments/test1_to_test2.dart';
 import '../Modeles/test1_model.dart';
 
 class Test1Page extends StatelessWidget {
@@ -16,6 +17,12 @@ class Test1Page extends StatelessWidget {
         children: [
           Text("受け渡しテスト" + testVariable),
           Text("モデルテスト：" + isTrue(true)),
+          ElevatedButton(
+              onPressed: (){
+                Navigator.pushNamed(context, '/2page', arguments: Test1ToTest2("テストだよ", 1));
+              },
+              child: Text("次のページへ"),
+          ),
         ],
       ),
     );
