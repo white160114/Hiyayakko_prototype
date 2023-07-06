@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/test',
       routes: {
+        //ルーディング例
+        //url: (context) => ページクラス
         '/': (context) => SizedBox(),
         '/test': (context) => Test1Controller(),
         '/test2page': (context) => Test2Controller(),
