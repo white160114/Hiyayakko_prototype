@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../Arguments/test1_to_test2.dart';
 import '../Modeles/test1_model.dart';
 
+//テストコミット
+
 class Test1Page extends StatelessWidget {
   final String testVariable;
   Test1Page({required this.testVariable, Key? key}) : super(key: key);
