@@ -40,7 +40,7 @@ class _SettingPage2State extends State<SettingPage2> {
               ),
             ),
             Image.asset(
-              'images/hiya.png',
+              'lib/Views/Images/hiya.png',
               width: 300,
               height: 140,
             ),
