@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-Future<void> createUser({required BuildContext context, required String? email, required String? password, required String? checkPassword}) async {
+Future<User?> createUser({required BuildContext context, required String? email, required String? password, required String? checkPassword}) async {
   if(checkPassword != password){
     showDialog(
         context: context,
@@ -40,6 +40,7 @@ Future<void> createUser({required BuildContext context, required String? email, 
           'RefrigeratorID': null,
         });
 
+        return user;
 
       } on FirebaseAuthException catch(e) { //この中エラー処理
         if(e.code == 'weak-password'){
@@ -118,4 +119,5 @@ Future<void> createUser({required BuildContext context, required String? email, 
       );
     }
   }
+  return null;
 }
