@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hiyayakko/Views/SettingPage2.dart';
 import 'package:hiyayakko/Controllers/settingpage1_controller.dart';
-
-
+import 'package:hiyayakko/Views/settingpage2.dart';
 
 
 class SettingPage1 extends StatelessWidget {
@@ -13,8 +11,8 @@ class SettingPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // SettingPage1Controllerのインスタンス化
     final SettingPage1Controller controller = SettingPage1Controller();
+
 
 
     return Scaffold(
@@ -61,7 +59,7 @@ class SettingPage1 extends StatelessWidget {
               CustomButton(
                 buttonText: '次へ',
                 onPressed: () {
-                  // SettingPage1Controllerのビルドメソッドを呼び出し、値を渡す
+                  // コントローラーのbuildメソッドを呼び出し、値を渡す
                   controller.build(
                     email: email,
                     password: password,
