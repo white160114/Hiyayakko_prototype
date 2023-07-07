@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hiyayakko/Views/settingpage1.dart';
-
+import 'package:hiyayakko/Views/SettingPage1.dart';
 import 'SettingPage3.dart';
+import 'package:hiyayakko/Controllers/settingpage2_controller.dart';
 
 class SettingPage2 extends StatefulWidget {
   @override
@@ -18,6 +18,8 @@ class _SettingPage2State extends State<SettingPage2> {
 
   @override
   Widget build(BuildContext context) {
+    final SettingPage2Controller controller = SettingPage2Controller();
+
     return Scaffold(
       backgroundColor: Color(0xFFEAEAEA),
       body: SingleChildScrollView(
@@ -86,6 +88,12 @@ class _SettingPage2State extends State<SettingPage2> {
             CustomButton(
               buttonText: '次へ',
               onPressed: () {
+                controller.build(
+                  Name: name,
+                  Gender: selectedGender,
+                  Age: selectedAge,
+                );
+
                 //画面遷移
                 Navigator.push(
                   context,
