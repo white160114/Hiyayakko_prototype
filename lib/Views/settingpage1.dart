@@ -24,7 +24,7 @@ class SettingPage1 extends StatelessWidget {
             children: [
               SizedBox(height: 70,),
               Image.asset(
-                'images/hiya.png',
+                'lib/Views/Images/hiya.png',
                 width: 300,
                 height: 200,
               ),
