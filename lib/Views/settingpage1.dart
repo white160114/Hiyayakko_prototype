@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hiyayakko/Views/settingpage2.dart';
+import 'package:hiyayakko/Views/SettingPage2.dart';
+import 'package:hiyayakko/Controllers/settingpage1_controller.dart';
+
+
 
 
 class SettingPage1 extends StatelessWidget {
@@ -10,6 +13,10 @@ class SettingPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // SettingPage1Controllerのインスタンス化
+    final SettingPage1Controller controller = SettingPage1Controller();
+
+
     return Scaffold(
       backgroundColor: Color(0xFFEAEAEA),
       body: SingleChildScrollView(
@@ -54,6 +61,13 @@ class SettingPage1 extends StatelessWidget {
               CustomButton(
                 buttonText: '次へ',
                 onPressed: () {
+                  // SettingPage1Controllerのビルドメソッドを呼び出し、値を渡す
+                  controller.build(
+                    email: email,
+                    password: password,
+                    checkPassword: checkPassword,
+                  );
+
                   //画面遷移
                   Navigator.push(
                     context,
