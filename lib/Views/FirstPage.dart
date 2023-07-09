@@ -36,12 +36,7 @@ class FirstPage extends StatelessWidget {
                       )
                   ),
                   onPressed: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LoginPage(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/login');
                   },
                   child: Text(
                     'ログイン',
@@ -66,12 +61,7 @@ class FirstPage extends StatelessWidget {
                     ),
                   ),
                   onPressed: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SettingPage1(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/settingpage1');
                   },
                   child: Text(
                     '新規登録',
