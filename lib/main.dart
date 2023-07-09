@@ -4,6 +4,7 @@ import 'package:hiyayakko/Views/FirstPage.dart';
 import 'package:hiyayakko/Views/LoginPage.dart';
 
 import 'Controllers/test2_controller.dart';
+import 'Views/SettingPage1.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => SizedBox(),
         '/firstpage': (context) => FirstPage(),
         '/login': (context) => LoginPage(),
+        '/settingpage1': (context) => SettingPage1(),
         '/test': (context) => Test1Controller(),
         '/test2page': (context) => Test2Controller(),
       },
