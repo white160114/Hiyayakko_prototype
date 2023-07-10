@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hiyayakko/Controllers/new_ref_controller.dart';
+import 'Welcomeref.dart';
 import 'setting1_page.dart';
 
 
@@ -55,12 +56,12 @@ class NewRefPage extends StatelessWidget {
               onPressed: () {
 
                 //画面遷移
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => Home(),
-                //   ),
-                //);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Welcomeref(refname:refname),
+                  ),
+                );
               },
             ),
           ],
