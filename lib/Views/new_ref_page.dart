@@ -1,17 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hiyayakko/Controllers/Newref_controller.dart';
-import 'SettingPage1.dart';
+import 'package:hiyayakko/Controllers/new_ref_controller.dart';
+import 'setting1_page.dart';
 
 
 
-class Newref extends StatelessWidget {
+class NewRefPage extends StatelessWidget {
   String refname = '';
-
 
   @override
   Widget build(BuildContext context) {
-    final NewrefController controller = NewrefController();
 
     return Scaffold(
       backgroundColor: Color(0xFFEAEAEA),
@@ -55,8 +53,6 @@ class Newref extends StatelessWidget {
             CustomButton(
               buttonText: '次へ',
               onPressed: () {
-                //コントローラーのbuildメソッドを呼び出し値を渡す
-                controller.build(refname: refname);
 
                 //画面遷移
                 // Navigator.push(

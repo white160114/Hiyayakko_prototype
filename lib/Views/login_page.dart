@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../Controllers/login_controller.dart';
-import 'SettingPage1.dart';
+import 'setting1_page.dart';
 
 class LoginPage extends StatelessWidget {
   String email = '';  //入力したメールアドレス
@@ -10,8 +10,6 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final LoginPageController controller = LoginPageController();
 
     return Scaffold(
       backgroundColor: Color(0xFFEAEAEA),
@@ -49,12 +47,6 @@ class LoginPage extends StatelessWidget {
               CustomButton(
                 buttonText: '次へ',
                 onPressed: () {
-                  // コントローラーのbuildメソッドを呼び出し、値を渡す
-                  controller.build(
-                    email: email,
-                    password: password,
-                  );
-
                   //画面遷移
                   // Navigator.push(
                   //   context,

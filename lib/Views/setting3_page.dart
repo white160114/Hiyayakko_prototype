@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SettingPage3 extends StatelessWidget {
+class Setting3Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,12 +71,7 @@ class SettingPage3 extends StatelessWidget {
               SizedBox(width: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => Newref(),
-                  //   ),
-                  // );
+                  Navigator.pushNamed(context, '/newRef');
                 },
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(

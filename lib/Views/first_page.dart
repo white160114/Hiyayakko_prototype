@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hiyayakko/Controllers/login_controller.dart';
 
-import 'LoginPage.dart';
-import 'SettingPage1.dart';
+import 'login_page.dart';
+import 'setting1_page.dart';
 
 class FirstPage extends StatelessWidget {
 
@@ -61,7 +61,7 @@ class FirstPage extends StatelessWidget {
                     ),
                   ),
                   onPressed: (){
-                    Navigator.pushNamed(context, '/settingpage1');
+                    Navigator.pushNamed(context, '/setting/page1');
                   },
                   child: Text(
                     '新規登録',

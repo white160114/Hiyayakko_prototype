@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hiyayakko/Controllers/settingpage1_controller.dart';
-import 'package:hiyayakko/Views/settingpage2.dart';
+import 'package:hiyayakko/Views/setting2_page.dart';
 
 
-class SettingPage1 extends StatelessWidget {
+class Setting1Page extends StatelessWidget {
   String email = '';  //入力したメールアドレス
   String password = ''; //入力したパスワード
   String checkPassword = '';  //も一度
@@ -11,9 +10,6 @@ class SettingPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SettingPage1Controller controller = SettingPage1Controller();
-
-
 
     return Scaffold(
       backgroundColor: Color(0xFFEAEAEA),
@@ -59,20 +55,8 @@ class SettingPage1 extends StatelessWidget {
               CustomButton(
                 buttonText: '次へ',
                 onPressed: () {
-                  // コントローラーのbuildメソッドを呼び出し、値を渡す
-                  controller.build(
-                    email: email,
-                    password: password,
-                    checkPassword: checkPassword,
-                  );
-
                   //画面遷移
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SettingPage2(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/setting/page2');
                 },
               ),
             ],

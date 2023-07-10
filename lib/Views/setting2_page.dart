@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hiyayakko/Views/SettingPage1.dart';
-import 'SettingPage3.dart';
-import 'package:hiyayakko/Controllers/settingpage2_controller.dart';
+import 'package:hiyayakko/Views/setting1_page.dart';
+import 'setting3_page.dart';
+import 'package:hiyayakko/Controllers/setting2_controller.dart';
 
-class SettingPage2 extends StatefulWidget {
+class Setting2Page extends StatefulWidget {
   @override
-  _SettingPage2State createState() => _SettingPage2State();
+  _Setting2PageState createState() => _Setting2PageState();
 }
 
-class _SettingPage2State extends State<SettingPage2> {
+class _Setting2PageState extends State<Setting2Page> {
   String name = '';
   String? selectedGender;
   String? selectedAge;
@@ -18,7 +18,6 @@ class _SettingPage2State extends State<SettingPage2> {
 
   @override
   Widget build(BuildContext context) {
-    final SettingPage2Controller controller = SettingPage2Controller();
 
     return Scaffold(
       backgroundColor: Color(0xFFEAEAEA),
@@ -88,19 +87,8 @@ class _SettingPage2State extends State<SettingPage2> {
             CustomButton(
               buttonText: '次へ',
               onPressed: () {
-                controller.build(
-                  Name: name,
-                  Gender: selectedGender,
-                  Age: selectedAge,
-                );
-
                 //画面遷移
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SettingPage3(),
-                  ),
-                );
+                Navigator.pushNamed(context, '/setting/page3');
               },
             ),
             SizedBox(height: 55),
