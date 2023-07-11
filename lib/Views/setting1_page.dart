@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Arguments/setting1_to_setting2.dart';
 import 'package:hiyayakko/Views/setting2_page.dart';
 
 
@@ -56,7 +57,7 @@ class Setting1Page extends StatelessWidget {
                 buttonText: '次へ',
                 onPressed: () {
                   //画面遷移
-                  Navigator.pushNamed(context, '/setting/page2');
+                  Navigator.pushNamed(context, '/setting/page2', arguments: Setting1ToSetting2(email, password, checkPassword));
                 },
               ),
             ],
