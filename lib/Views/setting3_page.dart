@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'invitationcode.dart';
+
 class Setting3Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -37,12 +39,12 @@ class Setting3Page extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => Invitationcode(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Invitationcode(),
+                    ),
+                  );
                 },
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
