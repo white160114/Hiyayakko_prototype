@@ -1,11 +1,11 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hiyayakko/Views/setting1_page.dart';
+import 'home_page.dart';
 
-import 'Welcomeref.dart';
-
-class InvitationOK extends StatelessWidget {
+class NewRefWelcomePage extends StatelessWidget {
+  final String? refname;
+  NewRefWelcomePage({this.refname});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class InvitationOK extends StatelessWidget {
           ),
           SizedBox(height: 230,),
           Text(
-            '招待されました',
+            '$refnameの冷蔵庫へ\nようこそ！！',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 37,
@@ -41,12 +41,7 @@ class InvitationOK extends StatelessWidget {
             buttonText: '次へ',
             onPressed: () {
               //画面遷移
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Welcomeref(),
-                ),
-              );
+              Navigator.pushNamed(context, "/home");
             },
           ),
         ],

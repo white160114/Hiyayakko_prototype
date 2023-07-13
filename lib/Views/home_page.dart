@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Welcomeref.dart';
+import 'new_ref_welcome_page.dart';
 
-class Home extends StatelessWidget {
+class HomePage extends StatelessWidget {
   final String? refname;
-  Home({this.refname});
+  HomePage({this.refname});
 
   @override
   Widget build(BuildContext context) {
@@ -77,12 +77,7 @@ class Home extends StatelessWidget {
             onTapCallbacks: [
                   () {
                 // 1番目の画像がタップされたときの処理
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Welcomeref(refname: refname),
-                  ),
-                );
+                Navigator.pushNamed(context, "/welcomeRef");
               },
                   () {
                 // 2番目の画像がタップされたときの処理

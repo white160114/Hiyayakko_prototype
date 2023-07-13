@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hiyayakko/Views/setting1_page.dart';
 
-import 'invitationOK.dart';
+import 'invitation_success_page.dart';
 
-class Invitationcode extends StatefulWidget {
+class InvitationFormPage extends StatefulWidget {
   @override
-  _InvitationcodeState createState() => _InvitationcodeState();
+  _InvitationFormPageState createState() => _InvitationFormPageState();
 }
 
-class _InvitationcodeState extends State<Invitationcode> {
+class _InvitationFormPageState extends State<InvitationFormPage> {
   List<String> _codeCharacters = List.generate(9, (index) => '');
   List<FocusNode> _focusNodes = List.generate(9, (index) => FocusNode());
   List<TextEditingController> _controllers = List.generate(9, (index) => TextEditingController());
@@ -111,12 +111,7 @@ class _InvitationcodeState extends State<Invitationcode> {
                 String invitationCode = _codeCharacters.join('');
 
                 // 画面遷移
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => InvitationOK(),
-                  ),
-                );
+                Navigator.pushNamed(context, "/setting/invitation/succes");
               },
             ),
           ],

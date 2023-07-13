@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'invitationcode.dart';
+import 'invitation_form_page.dart';
 
 class Setting3Page extends StatelessWidget {
   @override
@@ -39,12 +39,7 @@ class Setting3Page extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Invitationcode(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, "/setting/invitation/form");
                 },
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -73,7 +68,7 @@ class Setting3Page extends StatelessWidget {
               SizedBox(width: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/newRef');
+                  Navigator.pushNamed(context, '/setting/newRef/form');
                 },
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
