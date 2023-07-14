@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Arguments/setting2_to_setting3.dart';
 import 'package:hiyayakko/Views/setting1_page.dart';
 import 'setting3_page.dart';
 import 'package:hiyayakko/Controllers/setting2_controller.dart';
@@ -9,10 +10,10 @@ class Setting2Page extends StatefulWidget {
 }
 
 class _Setting2PageState extends State<Setting2Page> {
-  String name = '';
-  String? selectedGender;
-  String? selectedAge;
-  List<String> ages = List.generate(101, (index) => '${index}歳');
+  String? name;
+  String? gender;
+  String? age;
+  List<String> ages = List.generate(101, (index) => '${index}');
   // List<String> ages = List.generate(101, (index) => index.toString());
 
 
@@ -63,10 +64,10 @@ class _Setting2PageState extends State<Setting2Page> {
               ],
               onChanged: (String? value) {
                 setState(() {
-                  selectedGender = value;
+                  gender = value;
                 });
               },
-              value: selectedGender,
+              value: gender,
             ),
             SizedBox(height: 60),
             CustomDropdownButton(
@@ -74,21 +75,21 @@ class _Setting2PageState extends State<Setting2Page> {
               items: [
                 DropdownMenuItem(value: '年齢', child: Text('年齢')),
                 for (String age in ages)
-                  DropdownMenuItem(value: age, child: Text(age)),
+                  DropdownMenuItem(value: age, child: Text(age + "歳")),
               ],
               onChanged: (String? value) {
                 setState(() {
-                  selectedAge = value;
+                  age = value;
                 });
               },
-              value: selectedAge,
+              value: age,
             ),
             SizedBox(height: 60),
             CustomButton(
               buttonText: '次へ',
               onPressed: () {
                 //画面遷移
-                Navigator.pushNamed(context, '/setting/page3');
+                Navigator.pushNamed(context, '/setting/page3', arguments: Setting2ToSetting3(name!, gender, int.parse(age!)));
               },
             ),
             SizedBox(height: 55),
