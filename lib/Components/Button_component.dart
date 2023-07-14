@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 
 class CustomNavbar extends StatelessWidget {
   final List<Image> images = [
-
+    Image(image: AssetImage('lib/Views/images/minirefrigerator.png')),
+    Image(image: AssetImage('lib/Views/images/recipe.png')),
+    Image(image: AssetImage('lib/Views/images/home.png')),
+    Image(image: AssetImage('lib/Views/images/refopen.png')),
+    Image(image: AssetImage('lib/Views/images/account.png')),
   ]; // 画像のリスト
   final List<ColorFilter> colorFilters; // 画像ごとのColorFilterのリスト
   final double imageSize; // 画像の大きさ
@@ -14,10 +18,9 @@ class CustomNavbar extends StatelessWidget {
 
   CustomNavbar({
     required this.colorFilters,
-    required this.images,
     this.imageSize = 60.0,
     this.spacing = 16,
-    this.horizontalSpacing = 4.0,
+    this.horizontalSpacing = 8.0,
     this.marginBottom = 40.0,
     required this.onTapCallbacks,
   });
@@ -70,3 +73,5 @@ class CustomNavbar extends StatelessWidget {
     );
   }
 }
+
+
