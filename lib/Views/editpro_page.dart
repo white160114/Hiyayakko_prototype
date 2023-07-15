@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Views/profiel_page.dart';
 
 import '../Components/Button_component.dart';
 import '../Components/Colors_component.dart';
@@ -92,7 +93,7 @@ class _EditproPage extends State<EditproPage>{
           clipBehavior: Clip.none,
           children:[
             Image(
-                image: AssetImage('lib/Views/Images/bigprofile.png'),
+                image: AssetImage('lib/Views/Images/editaccount.png'),
             ),
             Positioned(
               left: 70,
@@ -145,24 +146,9 @@ class _EditproPage extends State<EditproPage>{
         SizedBox(height: 10,),
         Padding(
             padding: EdgeInsets.only(right: 70),
-          child: Container(
-            width: 240,  // 横幅
-            height: 1,   // 線の太さ
-            color: Colors.black,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.black,  // 線の色
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),  // 影の色
-                    spreadRadius: 2,                       // 影の広がりの範囲
-                    blurRadius: 4,                         // 影のぼかしの強さ
-                    offset: Offset(0, 2),                  // 影のオフセット(x, y)
-                  ),
-                ],
-              ),
-            ),
-          ),
+          child: DecoratedLine(
+            width: 240,
+          )
         ),
         SizedBox(height: 30,),
         Padding(
@@ -195,24 +181,9 @@ class _EditproPage extends State<EditproPage>{
         SizedBox(height: 10,),
         Align(
           alignment: Alignment.centerRight,  // 全体を右側に寄せる
-          child: Container(
-            width: 350,  // 横幅
-            height: 1,   // 線の太さ
-            color: Colors.black,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.black,  // 線の色
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),  // 影の色
-                    spreadRadius: 2,                       // 影の広がりの範囲
-                    blurRadius: 4,                         // 影のぼかしの強さ
-                    offset: Offset(0, 2),                  // 影のオフセット(x, y)
-                  ),
-                ],
-              ),
-            ),
-          ),
+          child: DecoratedLine(
+            width: 350,
+          )
         ),
         SizedBox(height: 30,),
         Padding(
@@ -247,24 +218,9 @@ class _EditproPage extends State<EditproPage>{
         SizedBox(height: 5,),
         Padding(
           padding: EdgeInsets.only(right: 50),
-          child: Container(
-            width: 250,  // 横幅
-            height: 1,   // 線の太さ
-            color: Colors.black,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.black,  // 線の色
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),  // 影の色
-                    spreadRadius: 2,                       // 影の広がりの範囲
-                    blurRadius: 4,                         // 影のぼかしの強さ
-                    offset: Offset(0, 2),                  // 影のオフセット(x, y)
-                  ),
-                ],
-              ),
-            ),
-          ),
+          child: DecoratedLine(
+            width: 250,
+          )
         ),
         SizedBox(height: 30,),
         Padding(
@@ -299,24 +255,9 @@ class _EditproPage extends State<EditproPage>{
         SizedBox(height: 5,),
         Padding(
           padding: EdgeInsets.only(right: 50),
-          child: Container(
-            width: 250,  // 横幅
-            height: 1,   // 線の太さ
-            color: Colors.black,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.black,  // 線の色
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),  // 影の色
-                    spreadRadius: 2,                       // 影の広がりの範囲
-                    blurRadius: 4,                         // 影のぼかしの強さ
-                    offset: Offset(0, 2),                  // 影のオフセット(x, y)
-                  ),
-                ],
-              ),
-            ),
-          ),
+          child: DecoratedLine(
+            width: 250,
+          )
         ),
         SizedBox(height: 197,),
         CustomNavbar(colorFilters: [

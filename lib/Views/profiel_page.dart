@@ -111,23 +111,8 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20,),
-          Container(
-            width: double.infinity, //横幅
-            height: 1,       //線の太さ
-            color: Colors.black,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                  color: Colors.black,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2), //影の色
-                      spreadRadius: 2,  //影の広がりの範囲
-                      blurRadius: 4,  //影のぼかしの強さ
-                      offset: Offset(0,2),  //影のオフセット(x,y)
-                    )
-                  ]
-              ),
-            ),
+          DecoratedLine(
+            width: double.infinity,
           ),
           SizedBox(height: 15,),
 
@@ -143,7 +128,6 @@ class ProfilePage extends StatelessWidget {
           SizedBox(height: 10,),
 
           Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: EdgeInsets.only(left: 50),
@@ -163,6 +147,7 @@ class ProfilePage extends StatelessWidget {
                         value: true,
                         onChanged: (value) {
                           // スイッチの状態が変更された時の処理
+
                         },
                         activeColor: Color(0xFF6B4EFF),  // オンの色
                         trackColor: Colors.grey,         // オフの色
@@ -185,24 +170,9 @@ class ProfilePage extends StatelessWidget {
           SizedBox(height: 20,),
           Align(
             alignment: Alignment.centerRight,  // 全体を右側に寄せる
-            child: Container(
-              width: 350,  // 横幅
-              height: 1,   // 線の太さ
-              color: Colors.black,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Colors.black,  // 線の色
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),  // 影の色
-                      spreadRadius: 2,                       // 影の広がりの範囲
-                      blurRadius: 4,                         // 影のぼかしの強さ
-                      offset: Offset(0, 2),                  // 影のオフセット(x, y)
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            child: DecoratedLine(
+              width: 350,
+            )
           ),
 
           SizedBox(height: 20,),
@@ -249,24 +219,9 @@ class ProfilePage extends StatelessWidget {
           SizedBox(height: 20,),
           Align(
             alignment: Alignment.centerRight,  // 全体を右側に寄せる
-            child: Container(
-              width: 350,  // 横幅
-              height: 1,   // 線の太さ
-              color: Colors.black,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Colors.black,  // 線の色
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),  // 影の色
-                      spreadRadius: 2,                       // 影の広がりの範囲
-                      blurRadius: 4,                         // 影のぼかしの強さ
-                      offset: Offset(0, 2),                  // 影のオフセット(x, y)
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            child: DecoratedLine(
+              width: 350,
+            )
           ),
           SizedBox(height: 20,),
           Row(
@@ -336,24 +291,9 @@ class ProfilePage extends StatelessWidget {
           SizedBox(height: 20,),
           Align(
             alignment: Alignment.centerRight,  // 全体を右側に寄せる
-            child: Container(
-              width: 350,  // 横幅
-              height: 1,   // 線の太さ
-              color: Colors.black,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Colors.black,  // 線の色
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),  // 影の色
-                      spreadRadius: 2,                       // 影の広がりの範囲
-                      blurRadius: 4,                         // 影のぼかしの強さ
-                      offset: Offset(0, 2),                  // 影のオフセット(x, y)
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            child: DecoratedLine(
+              width: 350,
+            )
           ),
           SizedBox(height: 70,),
           CustomNavbar(colorFilters: [
@@ -382,6 +322,49 @@ class ProfilePage extends StatelessWidget {
               ]
           )
         ],
+      ),
+    );
+  }
+}
+
+//線のクラス
+class DecoratedLine extends StatelessWidget {
+  final double width;
+  final double height;
+  final Color color;
+  final double borderWidth;
+  final double blurRadius;
+  final double spreadRadius;
+  final Offset offset;
+
+  const DecoratedLine({
+    required this.width,
+    this.height = 1.0,
+    this.color = Colors.black,
+    this.borderWidth = 1.0,
+    this.blurRadius = 4.0,
+    this.spreadRadius = 2.0,
+    this.offset = const Offset(0, 2),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: height,
+      color: color,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: color,
+          boxShadow: [
+            BoxShadow(
+              color: color.withOpacity(0.2),
+              spreadRadius: spreadRadius,
+              blurRadius: blurRadius,
+              offset: offset,
+            ),
+          ],
+        ),
       ),
     );
   }
