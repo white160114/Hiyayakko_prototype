@@ -10,12 +10,10 @@ class EditproPage extends StatefulWidget {
   _EditproPage createState() => _EditproPage();
 }
 
-
 class _EditproPage extends State<EditproPage>{
-  String? selectedGender;
-  String? selectedAge;
-  List<String> ages = List.generate(101, (index) => '${index}歳');
-
+  String? gender;
+  String? age;
+  List<String> ages = List.generate(101, (index) => '${index}');
 
   @override
   Widget build(BuildContext context) {
@@ -52,12 +50,7 @@ class _EditproPage extends State<EditproPage>{
                 child:ElevatedButton(
                   onPressed: () {
                     // ボタンが押された時の処理
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EditproPage(),
-                        )
-                    );
+                    Navigator.pushNamed(context, "/profile");
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -207,10 +200,10 @@ class _EditproPage extends State<EditproPage>{
                 ],
                 onChanged: (String? value) {
                   setState(() {
-                    selectedGender = value;
+                    gender = value;
                   });
                 },
-                value: selectedGender,
+                value: gender,
               ),
             ],
           ),
@@ -240,14 +233,14 @@ class _EditproPage extends State<EditproPage>{
                 items: [
                   DropdownMenuItem(value: '年齢', child: Text('年齢')),
                   for (String age in ages)
-                    DropdownMenuItem(value: age, child: Text(age)),
+                    DropdownMenuItem(value: age, child: Text(age + "歳")),
                 ],
                 onChanged: (String? value) {
                   setState(() {
-                    selectedAge = value;
+                    age = value;
                   });
                 },
-                value: selectedAge,
+                value: age,
               ),
             ],
           ),
@@ -327,10 +320,6 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
       height: 35,   //縦幅
       decoration: BoxDecoration(
         color: Colors.transparent,
-        // border: Border.all(
-        //   color: Colors.black12,  //枠線の色
-        //   width: 1.0,
-        // ),
         borderRadius: BorderRadius.circular(16),  //角丸の半径
       ),
       child: DropdownButtonHideUnderline(

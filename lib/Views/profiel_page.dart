@@ -8,7 +8,7 @@ import 'editpro_page.dart';
 import 'getcode_page.dart';
 
 
-class ProfilePage extends StatelessWidget {
+class ProfielPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +33,6 @@ class ProfilePage extends StatelessWidget {
                     'プロフィール画面',
                     style: TextStyle(
                       fontSize: 25,
-                      // fontWeight: FontWeight.bold,
                       color: Colors_component.titleColor,
                     ),
                   ),
@@ -78,12 +77,7 @@ class ProfilePage extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               // ボタンが押された時の処理
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => EditproPage(),
-                  )
-              );
+              Navigator.pushNamed(context,"/edit");
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -252,12 +246,7 @@ class ProfilePage extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // ボタンが押された時の処理
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GetCodePage(),
-                      )
-                  );
+                  Navigator.pushNamed(context, "/getcode");
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
