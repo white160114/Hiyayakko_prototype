@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Controllers/ctegory_controller.dart';
 import 'package:hiyayakko/Controllers/test1_controller.dart';
 
 import 'Controllers/test2_controller.dart';
@@ -16,13 +17,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.cyan,
       ),
-      initialRoute: '/test',
+      initialRoute: '/category',
       routes: {
         //ルーディング例
         //url: (context) => ページクラス
         '/': (context) => SizedBox(),
         '/test': (context) => Test1Controller(),
         '/test2page': (context) => Test2Controller(),
+        '/category': (context) => CategoryController(),
       },
     );
   }
