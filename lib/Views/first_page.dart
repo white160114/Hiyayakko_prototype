@@ -1,9 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hiyayakko/Controllers/login_controller.dart';
-
-import 'login_page.dart';
-import 'setting1_page.dart';
 
 class FirstPage extends StatelessWidget {
 

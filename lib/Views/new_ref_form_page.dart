@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Arguments/new_ref_form_to_new_ref_welcome.dart';
 import 'package:hiyayakko/Controllers/new_ref_form_controller.dart';
+import 'package:uuid/uuid.dart';
 import 'new_ref_welcome_page.dart';
 import 'setting1_page.dart';
 
 
 
 class NewRefFormPage extends StatelessWidget {
-  String refname = '';
+  String refName = '';
 
   @override
   Widget build(BuildContext context) {
@@ -47,16 +49,15 @@ class NewRefFormPage extends StatelessWidget {
               height: 60,
               textSize: 16,
               onChanged: (value) {
-                refname = value;
+                refName = value;
               },
             ),
             SizedBox(height: 110),
             CustomButton(
               buttonText: '次へ',
               onPressed: () {
-
                 //画面遷移
-                Navigator.pushNamed(context, "/setting/newRef/welcome");
+                Navigator.pushNamed(context, "/setting/newRef/welcome", arguments: NewRefFormToNewRefWelcome(refName, Uuid().v4()));
               },
             ),
           ],

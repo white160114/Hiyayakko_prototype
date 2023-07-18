@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Arguments/new_account_create_infomation_notifier.dart';
 import 'package:hiyayakko/Arguments/setting1_to_setting2.dart';
 import 'package:hiyayakko/Views/setting2_page.dart';
+import 'package:provider/provider.dart';
 
 
 class Setting1Page extends StatelessWidget {
@@ -8,62 +10,64 @@ class Setting1Page extends StatelessWidget {
   String password = ''; //入力したパスワード
   String checkPassword = '';  //も一度
 
-
   @override
   Widget build(BuildContext context) {
-
+    final NewAccountCreateData data = Provider.of<NewAccountCreateData>(context);
     return Scaffold(
-      backgroundColor: Color(0xFFEAEAEA),
-      body: SingleChildScrollView(
-        child: Align(
-          alignment: Alignment.topCenter,
-          child: Column(
-            children: [
-              SizedBox(height: 70,),
-              Image.asset(
-                'lib/Views/Images/hiya.png',
-                width: 300,
-                height: 200,
-              ),
-              SizedBox(height: 0),
-              CustomTextField(
-                hintText: 'メールアドレスを入力してください',
-                width: 270,
-                height: 60,
-                onChanged: (value) {
-                  email = value;
-                },
-              ),
-              SizedBox(height: 60),
-              CustomTextField(
-                hintText: 'パスワードを入力してください',
-                width: 270,
-                height: 60,
-                onChanged: (value) {
-                  password = value;
-                },
-              ),
-              SizedBox(height: 60),
-              CustomTextField(
-                hintText: 'もう一度パスワードを入力してください',
-                width: 270,
-                height: 60,
-                onChanged: (value){
-                  checkPassword = value;
-                },
-              ),
-              SizedBox(height: 60,),
-              CustomButton(
-                buttonText: '次へ',
-                onPressed: () {
-                  //画面遷移
-                  Navigator.pushNamed(context, '/setting/page2', arguments: Setting1ToSetting2(email, password, checkPassword));
-                },
-              ),
-            ],
+        backgroundColor: Color(0xFFEAEAEA),
+        body: SingleChildScrollView(
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Column(
+              children: [
+                SizedBox(height: 70,),
+                Image.asset(
+                  'lib/Views/Images/hiya.png',
+                  width: 300,
+                  height: 200,
+                ),
+                SizedBox(height: 0),
+                CustomTextField(
+                  hintText: 'メールアドレスを入力してください',
+                  width: 270,
+                  height: 60,
+                  onChanged: (value) {
+                    email = value;
+                    data.setEmail(value);
+                  },
+                ),
+                SizedBox(height: 60),
+                CustomTextField(
+                  hintText: 'パスワードを入力してください',
+                  width: 270,
+                  height: 60,
+                  onChanged: (value) {
+                    password = value;
+                    data.setPassword(value);
+                  },
+                ),
+                SizedBox(height: 60),
+                CustomTextField(
+                  hintText: 'もう一度パスワードを入力してください',
+                  width: 270,
+                  height: 60,
+                  onChanged: (value){
+                    checkPassword = value;
+                    data.setCheckPassword(value);
+                  },
+                ),
+                SizedBox(height: 60,),
+                CustomButton(
+                  buttonText: '次へ',
+                  onPressed: () {
+                    //画面遷移
+                    Navigator.pushNamed(context, '/setting/page2', arguments: Setting1ToSetting2(email, password, checkPassword));
+                  },
+                ),
+              ],
+            ),
           ),
         ),
-      ),
     );
   }
 }
