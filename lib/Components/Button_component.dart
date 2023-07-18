@@ -277,3 +277,97 @@ class CompleteButton extends StatelessWidget {
     );
   }
 }
+
+//選択ボックスのクラス
+class CustomDropdownButton extends StatefulWidget {
+  final String hint;  // 初期表示文字
+  final List<DropdownMenuItem<String>> items;   // 選択肢のリスト
+  final ValueChanged<String?> onChanged;  //
+  final String? value;
+  final double buttonWidth;  // ボタンの幅
+  final double buttonHeight;  // ボタンの高さ
+  final double textSize;  // 文字の大きさ
+
+  CustomDropdownButton({
+    required this.hint,
+    required this.items,
+    required this.onChanged,
+    this.value,
+    this.buttonWidth = 270,
+    this.buttonHeight = 60,
+    this.textSize = 16,
+  });
+
+  @override
+  _CustomDropdownButtonState createState() => _CustomDropdownButtonState();
+}
+
+class _CustomDropdownButtonState extends State<CustomDropdownButton> {
+  String? selectedValue;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedValue = widget.value;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: widget.buttonWidth,   // ボタンの横幅
+      height: widget.buttonHeight,   // ボタンの縦幅
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(
+          color: Colors.black12,  // 枠線の色
+          width: 1.0,
+        ),
+        borderRadius: BorderRadius.circular(16),  // 角丸の半径
+      ),
+      child: DropdownButtonHideUnderline(
+        child: ButtonTheme(
+          alignedDropdown: true,
+          child: DropdownButton<String>(
+            isExpanded: true,
+            value: selectedValue,
+            hint: Align(
+              alignment: Alignment.center,
+              child: Text(
+                selectedValue ?? widget.hint,
+                style: TextStyle(
+                  fontSize: widget.textSize,  // 文字のサイズ
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            items: widget.items.map((DropdownMenuItem<String> item) {
+              return DropdownMenuItem<String>(
+                value: item.value,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    item.value!,
+                    style: TextStyle(
+                      fontSize: widget.textSize,  // 文字のサイズ
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
+            onChanged: (value) {
+              setState(() {
+                selectedValue = value;
+              });
+              widget.onChanged(value);
+            },
+            icon: Icon(
+              Icons.keyboard_arrow_down,
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
