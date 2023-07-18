@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Colors_component.dart';
+
 //Navbar
 class CustomNavbar extends StatelessWidget {
   final List<Image> images = [
@@ -230,6 +232,47 @@ class CategoryWidget extends StatelessWidget {
             color: Colors.black,
           ),
         ],
+      ),
+    );
+  }
+}
+
+//完了ボタン
+class CompleteButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  CompleteButton({required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: 40),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.check,
+              color: Colors_component.gold,
+            ),
+            SizedBox(width: 10),
+            Text(
+              '完了',
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors_component.gold,
+              ),
+            ),
+          ],
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xFFE1E1E1),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          fixedSize: Size(105, 30),
+        ),
       ),
     );
   }
