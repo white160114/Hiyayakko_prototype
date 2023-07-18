@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+//Navbar
 class CustomNavbar extends StatelessWidget {
   final List<Image> images = [
     Image(image: AssetImage('lib/Views/Images/minirefrigerator.png')),
@@ -100,3 +101,136 @@ class CustomBackButton extends StatelessWidget {
   }
 }
 
+//追加ボタン
+class CustomAddButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String label;
+  final double labelSize;
+
+  const CustomAddButton({
+    required this.onPressed,
+    this.label = '追加',
+    this.labelSize = 15,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Color(0xFF6AAB2A),
+            ),
+            child: Icon(
+              Icons.add,
+              size: 20,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(width: 10),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: labelSize,
+              color: Color(0xFF6AAB2A),
+            ),
+          ),
+        ],
+      ),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xFFE1E1E1),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        fixedSize: Size(110, 45),
+      ),
+    );
+  }
+}
+
+//カテゴリー
+class CategoryWidget extends StatelessWidget {
+  final String name;
+  final String category;
+  final String expiryDate;
+  final String quantity;
+  final String imagePath;
+
+  CategoryWidget({
+    required this.name,
+    required this.category,
+    required this.expiryDate,
+    required this.quantity,
+    required this.imagePath,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.bottomCenter,
+      child: Column(
+        children: [
+          Row(
+            children: [
+              SizedBox(width: 30,),
+              Image.asset(
+                imagePath,
+                width: 75,
+                height: 75,
+              ),
+              SizedBox(width: 0,),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    SizedBox(height: 25,),
+                    Row(
+                      children: [
+                        SizedBox(width: 20,),
+                        Expanded(
+                          child: Text(
+                            '名前: $name',
+                          ),
+                        ),
+                        SizedBox(width: 0,),
+                        Expanded(
+                          child: Text('カテゴリー: $category'),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 2,),
+                    Row(
+                      children: [
+                        SizedBox(width: 10,),
+                        Text(
+                          '賞味期限: $expiryDate',
+                          style: TextStyle(
+                            color: Colors.red,
+                          ),
+                        ),
+                        SizedBox(width: 5,),
+                        Text('量: $quantity'),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 0,),
+          Divider(
+            thickness: 1.3,
+            indent: 25,
+            color: Colors.black,
+          ),
+        ],
+      ),
+    );
+  }
+}
