@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Controllers/addcategory_controller.dart';
 import 'package:hiyayakko/Controllers/ctegory_controller.dart';
+import 'package:hiyayakko/Controllers/meat_controller.dart';
 import 'package:hiyayakko/Controllers/test1_controller.dart';
 
 import 'Controllers/test2_controller.dart';
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
         '/test': (context) => Test1Controller(),
         '/test2page': (context) => Test2Controller(),
         '/category': (context) => CategoryController(),
+        '/meat' :(context) => MeatController(),
+        '/addcategory' :(context) => AddCategoryController(),
       },
     );
   }
