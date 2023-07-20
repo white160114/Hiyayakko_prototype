@@ -21,12 +21,11 @@ class FoodPage extends StatelessWidget{
                       },
                     )
                 ),
-                SizedBox(width: 40,),
-
+                SizedBox(width: 60,),
                 Padding(
-                  padding: EdgeInsets.only(top: 40),
+                  padding: EdgeInsets.only(top: 50),
                   child: Text(
-                    '肉',
+                    '食品',
                     style: TextStyle(
                       fontSize: 25,
                       color: Colors_component.titleColor,
@@ -36,11 +35,22 @@ class FoodPage extends StatelessWidget{
                 SizedBox(width: 45,),
                 Padding(
                   padding: EdgeInsets.only(top: 40),
-                  child:CustomAddButton(
-                      onPressed: (){
+                  child:ElevatedButton(
+                    onPressed: (){
 
-                      },
-                  )
+                    },
+                    child: Text(
+                        'カテゴリー別'
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF70C783),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(17),
+                      ),
+                      fixedSize: Size(120, 43), // ボタンの幅を変更
+                      elevation: 7,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -50,33 +60,40 @@ class FoodPage extends StatelessWidget{
             padding: EdgeInsets.only(left: 30),
             child:Align(
               alignment: Alignment.centerLeft,
-            child: ElevatedButton(
-              onPressed: (){
-                Navigator.pushNamed(context, '/detail');
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Icon(
-                    Icons.sort,
-                    color: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start, 
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigator.pushNamed(context, '/detail');
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.sort,
+                        color: Colors.white,
+                      ),
+                      SizedBox(width: 5,), // アイコンとテキストの間のスペースを追加
+                      Text(
+                        '絞り込み',
+                        style: TextStyle(
+                          fontSize: 14, // テキストのサイズを変更
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(width: 0,),
-                  Text(
-                    '絞り込み',
-                    style: TextStyle(
-                      fontSize: 8,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF80BD33),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
                     ),
+                    fixedSize: Size(120, 40), // ボタンの幅を変更
                   ),
-                ],
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF80BD33),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
                 ),
-                fixedSize: Size(90, 40),
-              ),
+                SizedBox(width: 115,),
+                CustomAddButton(onPressed: (){}),
+              ],
             ),
           )
           ),
@@ -99,27 +116,7 @@ class FoodPage extends StatelessWidget{
                   quantity: '残り使ってない',
                   imagePath: 'lib/Views/Images/examplemeat.png',
                 ),
-                CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
-                  imagePath: 'lib/Views/Images/examplemeat.png',
-                ),
-                CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
-                  imagePath: 'lib/Views/Images/examplemeat.png',
-                ),
-                CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
-                  imagePath: 'lib/Views/Images/examplemeat.png',
-                ),
+
               ],
             ),
           ),
