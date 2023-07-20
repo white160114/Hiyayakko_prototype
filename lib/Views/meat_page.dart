@@ -38,7 +38,6 @@ class MeatPage extends StatelessWidget{
                     '肉',
                     style: TextStyle(
                       fontSize: 25,
-                      // fontWeight: FontWeight.bold,
                       color: Colors_component.titleColor,
                     ),
                   ),
@@ -62,7 +61,7 @@ class MeatPage extends StatelessWidget{
               alignment: Alignment.centerLeft,
             child: ElevatedButton(
               onPressed: (){
-                
+                Navigator.pushNamed(context, '/detail');
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,

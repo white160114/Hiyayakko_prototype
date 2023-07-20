@@ -371,3 +371,65 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
     );
   }
 }
+
+//テキスト入力
+class CustomTextField extends StatefulWidget {
+  final String hintText;
+  final double width;
+  final double height;
+  final double textSize;
+  final ValueChanged<String>? onChanged;
+
+  const CustomTextField({
+    Key? key,
+    required this.hintText,
+    this.width = 270,
+    this.height = 60,
+    this.textSize = 12,
+    this.onChanged,
+  }) : super(key: key);
+
+  @override
+  _CustomTextFieldState createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  TextEditingController _textEditingController = TextEditingController();
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: widget.width,
+      height: widget.height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: Color(0xFFF5F5F5),
+        border: Border.all(
+          color: Colors.black12,
+          width: 1.0,
+        ),
+      ),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: TextField(
+            controller: _textEditingController,
+            onChanged: widget.onChanged,
+            decoration: InputDecoration.collapsed(
+              hintText: widget.hintText,
+              hintStyle: TextStyle(fontSize: widget.textSize),
+            ),
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: widget.textSize),
+          ),
+        ),
+      ),
+    );
+  }
+}
