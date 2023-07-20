@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
-Future<void> CreateUser ({required BuildContext context, required String? email, required String? password, required String? checkPassword, required String? name, required String? gender, required int? age}) async {
+Future<void> CreateUser ({required BuildContext context, required String? email, required String? password, required String? checkPassword}) async {
   if(password == checkPassword){
     print("パスワードがあっています");
     try {/// credential にはアカウント情報が記録される
@@ -11,9 +11,9 @@ Future<void> CreateUser ({required BuildContext context, required String? email,
         password: password!,
       );
       FirebaseFirestore.instance.collection('Users').doc(credential.user?.uid).set({
-        'userName': name,
-        'gender': gender,
-        'age': age,
+        'userName': null,
+        'gender': null,
+        'age': null,
         'icon': null,
         'refrigeratorID': null,
       });

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hiyayakko/Arguments/setting2_to_setting3.dart';
 import 'package:hiyayakko/Views/setting1_page.dart';
 import 'package:provider/provider.dart';
-import '../Arguments/new_account_create_infomation_notifier.dart';
+import '../Arguments/account_data_notifier.dart';
 
 class Setting2Page extends StatefulWidget {
   @override
@@ -19,7 +19,7 @@ class _Setting2PageState extends State<Setting2Page> {
 
   @override
   Widget build(BuildContext context) {
-    final NewAccountCreateData data = Provider.of<NewAccountCreateData>(context);
+    final AccountData data = Provider.of<AccountData>(context);
 
     return Scaffold(
       backgroundColor: Color(0xFFEAEAEA),

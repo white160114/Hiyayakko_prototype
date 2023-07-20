@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -46,14 +47,17 @@ class LoginPage extends StatelessWidget {
               SizedBox(height: 60,),
               CustomButton(
                 buttonText: '次へ',
-                onPressed: () {
-                  //画面遷移
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => SettingPage2(),
-                  //   ),
-                  // );
+                onPressed: () async {
+                  try {
+                    await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: email,
+                      password: password,
+                    );
+                    // 画面遷移
+                    Navigator.pushNamed(context, '/home',);
+                  } catch(error) {
+                    print(error);
+                  }
                 },
               ),
             ],

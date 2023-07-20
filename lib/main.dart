@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:hiyayakko/Arguments/new_account_create_infomation_notifier.dart';
+import 'package:hiyayakko/Arguments/account_data_notifier.dart';
 import 'package:hiyayakko/Controllers/first_controller.dart';
 import 'package:hiyayakko/Controllers/login_controller.dart';
 import 'package:hiyayakko/Controllers/new_ref_form_controller.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => NewAccountCreateData(),
+      create: (context) => AccountData(),
       child: _MyApp()
     );
   }

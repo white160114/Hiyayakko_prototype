@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:hiyayakko/Arguments/new_account_create_infomation_notifier.dart';
+import 'package:hiyayakko/Arguments/account_data_notifier.dart';
 import 'package:hiyayakko/Arguments/setting1_to_setting2.dart';
 import 'package:hiyayakko/Views/setting2_page.dart';
 import 'package:provider/provider.dart';
 
 
 class Setting1Page extends StatelessWidget {
-  String email = '';  //入力したメールアドレス
-  String password = ''; //入力したパスワード
-  String checkPassword = '';  //も一度
+  String? email;  //入力したメールアドレス
+  String? password; //入力したパスワード
+  String? checkPassword;  //も一度
 
   @override
   Widget build(BuildContext context) {
-    final NewAccountCreateData data = Provider.of<NewAccountCreateData>(context);
     return Scaffold(
         backgroundColor: Color(0xFFEAEAEA),
         body: SingleChildScrollView(
@@ -33,7 +32,6 @@ class Setting1Page extends StatelessWidget {
                   height: 60,
                   onChanged: (value) {
                     email = value;
-                    data.setEmail(value);
                   },
                 ),
                 SizedBox(height: 60),
@@ -43,7 +41,6 @@ class Setting1Page extends StatelessWidget {
                   height: 60,
                   onChanged: (value) {
                     password = value;
-                    data.setPassword(value);
                   },
                 ),
                 SizedBox(height: 60),
@@ -53,7 +50,6 @@ class Setting1Page extends StatelessWidget {
                   height: 60,
                   onChanged: (value){
                     checkPassword = value;
-                    data.setCheckPassword(value);
                   },
                 ),
                 SizedBox(height: 60,),
