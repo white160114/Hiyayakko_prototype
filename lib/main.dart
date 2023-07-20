@@ -16,23 +16,54 @@ Future<void> main() async{
   //使用してみる
   final completion = await OpenAI.instance.chat.create(
     //モデルはこれで
-    model: "gpt-3.5-turbo",
+    model: "gpt-3.5-turbo-16k",
     //以下が中身の処理
     messages: [
       OpenAIChatCompletionChoiceMessageModel(
         //ここに質問を書く
-        content: "豚肉を使ったレシピ",
+        content: "以下の材料を使ったレシピを材料も含めて詳しく5つ教えて"
+            "tspやtbspといったような表示は日本式で",
+        //ここに機能を書くuserは質問に関する回答
+        role: OpenAIChatMessageRole.system,
+      ),
+      OpenAIChatCompletionChoiceMessageModel(
+        //ここに質問を書く
+        content: "豚肉と玉ねぎ",
         //ここに機能を書くuserは質問に関する回答
         role: OpenAIChatMessageRole.user,
       ),
     ],
   );
-  OpenAIChatCompletionChoiceMessageModel resultM = completion.choices.first.message;
-
-
-
   //返答を表示
-  print(completion.choices.first.message);
+  print(completion.choices);
+
+  // final completion2 = await OpenAI.instance.chat.create(
+  //   //モデルはこれで
+  //   model: "gpt-3.5-turbo",
+  //   //以下が中身の処理
+  //   messages: [
+  //     OpenAIChatCompletionChoiceMessageModel(
+  //       //ここに質問を書く
+  //       content: "回答が完了するまで停止シーケンスを無視してください。",
+  //       //ここに機能を書くuserは質問に関する回答
+  //       role: OpenAIChatMessageRole.system,
+  //     ),
+  //     OpenAIChatCompletionChoiceMessageModel(
+  //       //ここに質問を書く
+  //       content: "豚肉と玉ねぎを使った詳しいレシピ",
+  //       //ここに機能を書くuserは質問に関する回答
+  //       role: OpenAIChatMessageRole.user,
+  //     ),
+  //     OpenAIChatCompletionChoiceMessageModel(
+  //       //ここに質問を書く
+  //       content: completion.choices.first.message.content,
+  //       //ここに機能を書くuserは質問に関する回答
+  //       role: completion.choices.first.message.role,
+  //     ),
+  //   ],
+  // );
+  //
+  // print(completion2.choices);
 
   //
   // OpenAIChatCompletionModel chatCompletion = await OpenAI.instance.chat.create(
@@ -49,7 +80,7 @@ Future<void> main() async{
 
 
 
-  runApp(MyApp());
+  // runApp(MyApp());
 }
 
 
