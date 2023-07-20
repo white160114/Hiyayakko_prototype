@@ -46,9 +46,9 @@ class MeatPage extends StatelessWidget{
                 Padding(
                   padding: EdgeInsets.only(top: 40),
                   child:CustomAddButton(
-                    onPressed: (){
-                      Navigator.pushNamed(context, '/addcategory',);
-                    },
+                      onPressed: (){
+
+                      },
                   )
                 ),
               ],
