@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hiyayakko/Controllers/food_controller.dart';
 import 'package:hiyayakko/Controllers/test1_controller.dart';
 
+import 'Controllers/detail_controller.dart';
+import 'Controllers/editpage_controller.dart';
 import 'Controllers/test2_controller.dart';
 
 void main() {
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
         '/test': (context) => Test1Controller(),
         '/test2page': (context) => Test2Controller(),
         '/food' :(context) => FoodController(),
+        '/detail':(context) => DetailController(),
+        '/edit': (context) => EditPageController(),
       },
     );
   }
