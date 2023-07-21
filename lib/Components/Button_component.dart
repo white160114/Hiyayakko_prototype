@@ -288,6 +288,7 @@ class CustomDropdownButton extends StatefulWidget {
   final double buttonWidth;  // ボタンの幅
   final double buttonHeight;  // ボタンの高さ
   final double textSize;  // 文字の大きさ
+  final double borderRadius;
 
   CustomDropdownButton({
     required this.hint,
@@ -297,6 +298,7 @@ class CustomDropdownButton extends StatefulWidget {
     this.buttonWidth = 270,
     this.buttonHeight = 60,
     this.textSize = 16,
+    this.borderRadius = 16,
   });
 
   @override
@@ -323,7 +325,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           color: Colors.black12,  // 枠線の色
           width: 1.0,
         ),
-        borderRadius: BorderRadius.circular(16),  // 角丸の半径
+        borderRadius: BorderRadius.circular(widget.borderRadius),  // 角丸の半径
       ),
       child: DropdownButtonHideUnderline(
         child: ButtonTheme(
@@ -380,6 +382,7 @@ class CustomTextField extends StatefulWidget {
   final double height;
   final double textSize;
   final ValueChanged<String>? onChanged;
+  final double borderRadius;  //角のマルサ
 
   const CustomTextField({
     Key? key,
@@ -387,6 +390,7 @@ class CustomTextField extends StatefulWidget {
     this.width = 270,
     this.height = 60,
     this.textSize = 12,
+    this.borderRadius =15,
     this.onChanged,
   }) : super(key: key);
 
@@ -409,7 +413,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       width: widget.width,
       height: widget.height,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(widget.borderRadius),
         color: Color(0xFFF5F5F5),
         border: Border.all(
           color: Colors.black12,
