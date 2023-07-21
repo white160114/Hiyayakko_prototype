@@ -11,10 +11,39 @@ class AddCategoryPage extends StatefulWidget {
 
 class _AddCategoryPageState extends State<AddCategoryPage> {
   String? category;
-  String? syoumi;
+  String? expiryDate; //賞味期限
   bool showInputFields = false;
   String? foodname;
+  String? quantity;   //量
   String? memo;
+
+  Future<void> _selectExpiryDate() async {
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2100),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            // カレンダー上の時刻選択を非表示にする
+            // timePickerTheme: TimePickerThemeData(
+            //   dayPeriodBorderSide: BorderSide.none,
+            // ),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    if (pickedDate != null && pickedDate != expiryDate) {
+      setState(() {
+        // 月、日の情報だけを取得して保存する
+        expiryDate = "${pickedDate.month}/${pickedDate.day}";
+      });
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -170,68 +199,69 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                   buttonHeight: 40,
                   textSize: 20,
                   borderRadius: 30,
+                  textcolor: Color(0xFF72777A),
                 ),
               ),
               Positioned(
                 top: 300,
-                child: CustomDropdownButton(
-                  hint: '賞味期限',
-                  items: [
-                    DropdownMenuItem(value: '肉', child: Text('肉')),
-                    DropdownMenuItem(value: '魚', child: Text('魚')),
-                    DropdownMenuItem(value: '野菜', child: Text('野菜')),
-                    DropdownMenuItem(value: '飲み物', child: Text('飲み物')),
-                    DropdownMenuItem(value: 'お酒', child: Text('お酒')),
-                    DropdownMenuItem(value: '調味料', child: Text('調味料')),
-                    DropdownMenuItem(value: 'その他', child: Text('その他')),
-                  ],
-                  onChanged: (String? value) {
-                    setState(() {
-                      category = value;
-                    });
-                  },
-                  value: category,
-                  buttonWidth: 230,
-                  buttonHeight: 40,
-                  textSize: 20,
-                  borderRadius: 30,
+                child: GestureDetector(
+                  onTap: _selectExpiryDate, // GestureDetectorでonTapを使います。
+                  child: CustomDropdownButton(
+                    hint: '賞味期限:${expiryDate != null ? expiryDate!.split(' ')[0] : ""}',
+                    items: [/* 他のドロップダウンアイテム */],
+
+                    onChanged: (String? value) {
+                      setState(() {
+                        expiryDate = value;
+                      });
+                    },
+                    value: expiryDate,
+                    buttonWidth: 230,
+                    buttonHeight: 40,
+                    textSize: 20,
+                    textcolor: Color(0xFF72777A),
+                  ),
                 ),
               ),
               Positioned(
                 top: 350,
                 child: Column(
                   children: [
-                    if(!showInputFields)
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          showInputFields = true;
-                        });
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            '詳細設定',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
+                    if (!showInputFields)
+                      Center(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              showInputFields = true;
+                            });
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '詳細設定',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xFF72777A),
+                                ),
+                              ),
+                              Icon(
+                                Icons.keyboard_arrow_down,
+                                color: Colors.black,
+                                size: 20,
+                              ),
+                            ],
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
                             ),
+                            fixedSize: Size(230, 40),
                           ),
-                          Icon(
-                            Icons.keyboard_arrow_down,
-                            color: Colors.black,
-                            size: 20,
-                          ),
-                        ],
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
                         ),
-                        fixedSize: Size(230, 40),
                       ),
-                    ),
+
                     if(showInputFields)
                       CustomTextField(
                         hintText: '名前:馬肉',
@@ -239,6 +269,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                         height: 40,
                         borderRadius: 30,
                         textSize: 20,
+                        textAlign: TextAlign.start,
                         onChanged: (value) {
                           foodname = value;
                         },
@@ -251,6 +282,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                         height: 40,
                         borderRadius: 30,
                         textSize: 20,
+                        textAlign: TextAlign.start,
                         onChanged: (value) {
                           foodname = value;
                         },
@@ -262,6 +294,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                         width: 230,
                         height: 80,
                         textSize: 20,
+                        textAlign: TextAlign.start,
                         onChanged: (value) {
                           memo= value;
                         },
