@@ -92,7 +92,9 @@ class FoodPage extends StatelessWidget{
                   ),
                 ),
                 SizedBox(width: 115,),
-                CustomAddButton(onPressed: (){}),
+                CustomAddButton(onPressed: (){
+                  Navigator.pushNamed(context, '/add_category');
+                }),
               ],
             ),
           )
