@@ -13,13 +13,14 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
   String? category;
   String? syoumi;
   bool showInputFields = false;
-  String? input1;
-  String? input2;
+  String? foodname;
+  String? memo;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: SingleChildScrollView(
+      child:Column(
         children: [
           Container(
             child: Row(
@@ -70,54 +71,82 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                 ),
               ),
               Positioned(
-                top: 30,
-                child: Container(
-                  width: 200,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFA1978B),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 39,
-                left: 200,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: CircleBorder(),
-                    backgroundColor: Color.fromARGB(255, 164, 237, 92),
-                    fixedSize: Size(45, 45), // ボタンの幅と高さを指定
-                    elevation: 10, // 影の大きさを指定
-                  ),
-                  onPressed: () {
-
+                top: 0,
+                left: 65,
+                child: GestureDetector(
+                  onTap: () {
+                    // コンテナがタップされたときの処理をここに記述
+                    Navigator.pushNamed(context, '/food');
                   },
-                  child: Center(
-                    child: Icon(
-                      Icons.add,
-                      size: 33, // アイコンのサイズを指定
+                  child: Container(
+                    width: 300,
+                    height: 300,
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          top: 30,
+                          child: Container(
+                            width: 200,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFA1978B),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          top: 39,
+                          left: 140,
+                          child: Container(
+                            width: 45,
+                            height: 45,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color.fromARGB(255, 164, 237, 92),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.4),
+                                  spreadRadius: 2,
+                                  blurRadius: 4,
+                                  offset: Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: Center(
+                              child: Icon(
+                                Icons.add,
+                                size: 33,
+                                color: Colors.white,
+                              ),
+                            ),
+                          )
+
+                        ),
+                        Positioned(
+                          top: 65,
+                          left: 36,
+                          child: Icon(
+                            Icons.photo_camera,
+                            color: Colors.white,
+                            size: 130,
+                          ),
+                        ),
+                        Positioned(
+                          top: 185,
+                          left: 17,
+                          child: Text(
+                            '登録するものを撮影します',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ),
+                )
               ),
-              Positioned(
-                top: 65,
-                child: Icon(
-                  Icons.photo_camera,
-                  color: Colors.white,
-                  size: 130,
-                ),
-              ),
-              Positioned(
-                top: 185,
-                child: Text(
-                  '登録するものを撮影します',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+
               Positioned(
                 top: 250,
                 child: CustomDropdownButton(
@@ -140,6 +169,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                   buttonWidth: 230,
                   buttonHeight: 40,
                   textSize: 20,
+                  borderRadius: 30,
                 ),
               ),
               Positioned(
@@ -164,12 +194,14 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                   buttonWidth: 230,
                   buttonHeight: 40,
                   textSize: 20,
+                  borderRadius: 30,
                 ),
               ),
               Positioned(
                 top: 350,
                 child: Column(
                   children: [
+                    if(!showInputFields)
                     ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -200,14 +232,27 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                         fixedSize: Size(230, 40),
                       ),
                     ),
-                    SizedBox(height: 10),
-                    if (showInputFields)
+                    if(showInputFields)
                       CustomTextField(
                         hintText: '名前:馬肉',
                         width: 230,
                         height: 40,
+                        borderRadius: 30,
+                        textSize: 20,
                         onChanged: (value) {
-                          input1 = value;
+                          foodname = value;
+                        },
+                      ),
+                    SizedBox(height: 10),
+                    if (showInputFields)
+                      CustomTextField(
+                        hintText: '量:1/4',
+                        width: 230,
+                        height: 40,
+                        borderRadius: 30,
+                        textSize: 20,
+                        onChanged: (value) {
+                          foodname = value;
                         },
                       ),
                     SizedBox(height: 10),
@@ -216,8 +261,9 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                         hintText: 'メモ:',
                         width: 230,
                         height: 80,
+                        textSize: 20,
                         onChanged: (value) {
-                          input2 = value;
+                          memo= value;
                         },
                       ),
                   ],
@@ -255,6 +301,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
             ],
           ),
         ],
+      ),
       ),
     );
   }
