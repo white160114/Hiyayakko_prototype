@@ -289,6 +289,7 @@ class CustomDropdownButton extends StatefulWidget {
   final double buttonHeight;  // ボタンの高さ
   final double textSize;  // 文字の大きさ
   final double borderRadius;
+  final textcolor;
 
   CustomDropdownButton({
     required this.hint,
@@ -299,6 +300,7 @@ class CustomDropdownButton extends StatefulWidget {
     this.buttonHeight = 60,
     this.textSize = 16,
     this.borderRadius = 16,
+    this.textcolor = Colors.black,
   });
 
   @override
@@ -339,7 +341,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                 selectedValue ?? widget.hint,
                 style: TextStyle(
                   fontSize: widget.textSize,  // 文字のサイズ
-                  color: Colors.black,
+                  color: widget.textcolor,
                 ),
               ),
             ),
@@ -383,6 +385,8 @@ class CustomTextField extends StatefulWidget {
   final double textSize;
   final ValueChanged<String>? onChanged;
   final double borderRadius;  //角のマルサ
+  final TextAlign textAlign;
+  final Color textcolor;
 
   const CustomTextField({
     Key? key,
@@ -391,6 +395,8 @@ class CustomTextField extends StatefulWidget {
     this.height = 60,
     this.textSize = 12,
     this.borderRadius =15,
+    this.textAlign = TextAlign.center,
+    this.textcolor = Colors.black,
     this.onChanged,
   }) : super(key: key);
 
@@ -430,7 +436,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               hintText: widget.hintText,
               hintStyle: TextStyle(fontSize: widget.textSize),
             ),
-            textAlign: TextAlign.center,
+            textAlign: widget.textAlign,
             style: TextStyle(fontSize: widget.textSize),
           ),
         ),
