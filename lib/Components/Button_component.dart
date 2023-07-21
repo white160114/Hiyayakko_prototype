@@ -175,7 +175,11 @@ class CategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+    onTap: (){
+      Navigator.pushNamed(context, '/detail');
+    },
+      child:Container(
       alignment: Alignment.bottomCenter,
       child: Column(
         children: [
@@ -234,6 +238,7 @@ class CategoryWidget extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }
