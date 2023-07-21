@@ -12,10 +12,10 @@ class AddCategoryPage extends StatefulWidget {
 class _AddCategoryPageState extends State<AddCategoryPage> {
   String? category;
   String? expiryDate; //賞味期限
-  bool showInputFields = false;
   String? foodname;
   String? quantity;   //量
   String? memo;
+  bool showInputFields = false;
 
   Future<void> _selectExpiryDate() async {
     final DateTime? pickedDate = await showDatePicker(
@@ -26,10 +26,6 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light().copyWith(
-            // カレンダー上の時刻選択を非表示にする
-            // timePickerTheme: TimePickerThemeData(
-            //   dayPeriodBorderSide: BorderSide.none,
-            // ),
           ),
           child: child!,
         );
@@ -71,7 +67,6 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                     '追加',
                     style: TextStyle(
                       fontSize: 25,
-                      // fontWeight: FontWeight.bold,
                       color: Colors_component.titleColor,
                     ),
                   ),
@@ -80,7 +75,9 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                   width: 45,
                 ),
                 CompleteButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/food');
+                  },
                 ),
               ],
             ),
@@ -105,7 +102,8 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                 child: GestureDetector(
                   onTap: () {
                     // コンテナがタップされたときの処理をここに記述
-                    Navigator.pushNamed(context, '/food');
+
+
                   },
                   child: Container(
                     width: 300,
@@ -135,9 +133,9 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.4),
-                                  spreadRadius: 2,
+                                  spreadRadius: 0,
                                   blurRadius: 4,
-                                  offset: Offset(0, 2),
+                                  offset: Offset(0, 4),
                                 ),
                               ],
                             ),
@@ -220,6 +218,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                     buttonHeight: 40,
                     textSize: 20,
                     textcolor: Color(0xFF72777A),
+                    borderRadius: 30,
                   ),
                 ),
               ),
