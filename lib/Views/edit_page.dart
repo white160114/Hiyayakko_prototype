@@ -26,10 +26,6 @@ class _EditPageState extends State<EditPage> {
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light().copyWith(
-            // カレンダー上の時刻選択を非表示にする
-            // timePickerTheme: TimePickerThemeData(
-            //   dayPeriodBorderSide: BorderSide.none,
-            // ),
           ),
           child: child!,
         );
@@ -71,7 +67,6 @@ class _EditPageState extends State<EditPage> {
                       '編集',
                       style: TextStyle(
                         fontSize: 30,
-                        // fontWeight: FontWeight.bold,
                         color: Colors_component.titleColor,
                       ),
                     ),
@@ -126,24 +121,18 @@ class _EditPageState extends State<EditPage> {
                             ),
                           ],
                         ),
-                        child: TextField(
+                        child: CustomTextField(
+                          hintText: '名前:馬肉',
+                          width: 230,
+                          height: 40,
+                          borderRadius: 30,
+                          textSize: 20,
+                          textAlign: TextAlign.start,
                           onChanged: (value) {
                             setState(() {
                               foodname = value;
                             });
                           },
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Color(0xFF72777A),
-                          ),
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                              vertical: 15,
-                              horizontal: 10,
-                            ),
-                            hintText: '名前:馬肉',
-                            border: InputBorder.none,
-                          ),
                         ),
                       ),
                       SizedBox(
@@ -169,6 +158,13 @@ class _EditPageState extends State<EditPage> {
                         buttonWidth: 230,
                         buttonHeight: 40,
                         textSize: 20,
+                        borderRadius: 30,
+                        hintTextAlign: TextAlign.left,
+                        textcolor: Colors_component.fontgrey,
+                        shadowBlurRadius: 5.0,
+                        shadowSpreadRadius: 3,
+                        shadowColor: Colors.black.withOpacity(0.2),
+                        shadowOffset: Offset(0,4),
                       ),
                       SizedBox(
                         height: 15,
@@ -186,6 +182,13 @@ class _EditPageState extends State<EditPage> {
                           buttonWidth: 230,
                           buttonHeight: 40,
                           textSize: 20,
+                          borderRadius: 30,
+                          hintTextAlign: TextAlign.left,
+                          textcolor: Colors_component.fontgrey,
+                          shadowBlurRadius: 5.0,
+                          shadowSpreadRadius: 3,
+                          shadowColor: Colors.black.withOpacity(0.2),
+                          shadowOffset: Offset(0,4),
                         ),
                       ),
                       SizedBox(
@@ -211,6 +214,13 @@ class _EditPageState extends State<EditPage> {
                         buttonWidth: 230,
                         buttonHeight: 40,
                         textSize: 20,
+                        borderRadius: 30,
+                        hintTextAlign: TextAlign.left,
+                        textcolor: Colors_component.fontgrey,
+                        shadowBlurRadius: 5.0,
+                        shadowSpreadRadius: 3,
+                        shadowColor: Colors.black.withOpacity(0.2),
+                        shadowOffset: Offset(0,4),
                       ),
                       SizedBox(
                         height: 15,
