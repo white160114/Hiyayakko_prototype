@@ -5,14 +5,14 @@ import '../Components/Button_component.dart';
 import '../Components/Colors_component.dart';
 
 class EditPage extends StatefulWidget {
-  final String? name;
+  final String? foodName;
   final String? category;
   final String? expiryDate;
   final String? quantity;
   final String? imagePath;
 
   EditPage({
-    this.name,
+    this.foodName,
     this.category,
     this.expiryDate,
     this.quantity,
@@ -140,7 +140,7 @@ class _EditPageState extends State<EditPage> {
                           ],
                         ),
                         child: CustomTextField(
-                          hintText: '名前${widget.name}',
+                          hintText: '名前${widget.foodName}',
                           width: 230,
                           height: 40,
                           borderRadius: 30,

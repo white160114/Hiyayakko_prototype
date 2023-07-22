@@ -6,12 +6,12 @@ import '../Components/Button_component.dart';
 import '../Components/Colors_component.dart';
 
 class DetailPage extends StatelessWidget{
-  String? name;
+  String? foodName;
   String? category;
   String? expiryDate;
   String? quantity;
   String? imagePath;
-  DetailPage({this.name,this.category,this.expiryDate,this.quantity,this.imagePath, Key? key}) : super(key: key);
+  DetailPage({this.foodName,this.category,this.expiryDate,this.quantity,this.imagePath, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +82,7 @@ class DetailPage extends StatelessWidget{
                       padding: EdgeInsets.only(top: 0),
                       child: ElevatedButton(
                         onPressed: (){
-                          Navigator.pushNamed(context, '/edit',arguments: DetailToEdit(name, category, expiryDate, quantity, imagePath));
+                          Navigator.pushNamed(context, '/edit',arguments: DetailToEdit(foodName, category, expiryDate, quantity, imagePath));
                         },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -140,7 +140,7 @@ class DetailPage extends StatelessWidget{
                 ),
                   SizedBox(height: 0,),
                   CustomContainer(
-                    text: '名前:$name',
+                    text: '名前:$foodName',
                   ),
                   SizedBox(height: 15,),
                   CustomContainer(text: 'カテゴリー:$category'),

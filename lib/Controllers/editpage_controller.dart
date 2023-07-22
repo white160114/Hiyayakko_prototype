@@ -9,14 +9,14 @@ class EditPageController  extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as DetailToEdit;
-    String? name = args.name;
+    String? foodName = args.foodName;
     String? category = args.category;
     String? expiryDate = args.expiryDate;
     String? quantity = args.quantity;
     String? imagePath = args.imagePath;
 
     return EditPage(
-      name: name,
+      foodName: foodName,
       category: category,
       expiryDate: expiryDate,
       quantity: quantity,

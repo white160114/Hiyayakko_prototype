@@ -103,14 +103,14 @@ class FoodPage extends StatelessWidget{
               padding: EdgeInsets.zero,
               children: [
                 CategoryWidget(
-                  name: '馬肉',
+                  foodName: '馬肉',
                   category: '肉',
                   expiryDate: '2023/5/19',
                   quantity: '残り使ってない',
                   imagePath: 'lib/Views/Images/examplemeat.png',
                 ),
                 CategoryWidget(
-                  name: '魚',
+                  foodName: '魚',
                   category: '魚',
                   expiryDate: '2023/6/19',
                   quantity: '残り半分',

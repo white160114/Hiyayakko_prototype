@@ -160,14 +160,14 @@ class CustomAddButton extends StatelessWidget {
 
 //カテゴリー
 class CategoryWidget extends StatelessWidget {
-  final String name;
+  final String foodName;
   final String category;
   final String expiryDate;
   final String quantity;
   final String imagePath;
 
   CategoryWidget({
-    required this.name,
+    required this.foodName,
     required this.category,
     required this.expiryDate,
     required this.quantity,
@@ -178,7 +178,7 @@ class CategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: (){
-      Navigator.pushNamed(context, '/detail',arguments:FoodToDetail(name,category,expiryDate,quantity,imagePath));
+      Navigator.pushNamed(context, '/detail',arguments:FoodToDetail(foodName,category,expiryDate,quantity,imagePath));
     },
     child:Container(
       alignment: Alignment.bottomCenter,
@@ -203,7 +203,7 @@ class CategoryWidget extends StatelessWidget {
                         SizedBox(width: 20,),
                         Expanded(
                           child: Text(
-                            '名前: $name',
+                            '名前: $foodName',
                           ),
                         ),
                         SizedBox(width: 0,),
