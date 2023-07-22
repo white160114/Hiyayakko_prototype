@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Arguments/food_to_detail.dart';
 
 import 'Colors_component.dart';
 
@@ -177,7 +178,7 @@ class CategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: (){
-      Navigator.pushNamed(context, '/detail');
+      Navigator.pushNamed(context, '/detail',arguments:FoodToDetail(name,category,expiryDate,quantity,imagePath));
     },
     child:Container(
       alignment: Alignment.bottomCenter,
