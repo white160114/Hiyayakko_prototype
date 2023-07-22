@@ -3,19 +3,42 @@ import 'package:flutter/material.dart';
 
 import '../Components/Button_component.dart';
 import '../Components/Colors_component.dart';
-import 'detail_page.dart';
 
 class EditPage extends StatefulWidget {
+  final String? name;
+  final String? category;
+  final String? expiryDate;
+  final String? quantity;
+  final String? imagePath;
+
+  EditPage({
+    this.name,
+    this.category,
+    this.expiryDate,
+    this.quantity,
+    this.imagePath,
+    Key? key,
+  }) : super(key: key);
+
+
   @override
   _EditPageState createState() => _EditPageState();
 }
 
 class _EditPageState extends State<EditPage> {
-  String? category;
-  String? expiryDate;
-  String? quantity;
-  String? memo;
-  String? foodname;
+  String? editedName;
+  String? editedCategory;
+  String? editedExpiryDate;
+  String? editedQuantity;
+  String? editedMemo;
+
+  void setExpiryDate(DateTime? date) {
+    if (date != null && date != editedExpiryDate) {
+      setState(() {
+        editedExpiryDate = "${date.month}/${date.day}";
+      });
+    }
+  }
 
   Future<void> _selectExpiryDate() async {
     final DateTime? pickedDate = await showDatePicker(
@@ -32,12 +55,7 @@ class _EditPageState extends State<EditPage> {
       },
     );
 
-    if (pickedDate != null && pickedDate != expiryDate) {
-      setState(() {
-        // 月、日の情報だけを取得して保存する
-        expiryDate = "${pickedDate.month}/${pickedDate.day}";
-      });
-    }
+    setExpiryDate(pickedDate);
   }
 
 
@@ -99,7 +117,7 @@ class _EditPageState extends State<EditPage> {
                   child: Column(
                     children: [
                       Image.asset(
-                        'lib/Views/Images/bigexamplemeat.png',
+                        widget.imagePath!,
                         height: 200, // 新しい高さを指定
                         width: 200, // 新しい幅を指定
                       ),
@@ -122,7 +140,7 @@ class _EditPageState extends State<EditPage> {
                           ],
                         ),
                         child: CustomTextField(
-                          hintText: '名前:馬肉',
+                          hintText: '名前${widget.name}',
                           width: 230,
                           height: 40,
                           borderRadius: 30,
@@ -130,7 +148,7 @@ class _EditPageState extends State<EditPage> {
                           textAlign: TextAlign.start,
                           onChanged: (value) {
                             setState(() {
-                              foodname = value;
+                              editedName = value;
                             });
                           },
                         ),
@@ -139,7 +157,7 @@ class _EditPageState extends State<EditPage> {
                         height: 15,
                       ),
                       CustomDropdownButton(
-                        hint: 'カテゴリー:肉',
+                        hint: 'カテゴリー:${widget.category}',
                         items: [
                           DropdownMenuItem(value: '肉', child: Text('肉')),
                           DropdownMenuItem(value: '魚', child: Text('魚')),
@@ -151,10 +169,10 @@ class _EditPageState extends State<EditPage> {
                         ],
                         onChanged: (String? value) {
                           setState(() {
-                            category = value;
+                            editedCategory = value;
                           });
                         },
-                        value: category,
+                        value: editedCategory,
                         buttonWidth: 230,
                         buttonHeight: 40,
                         textSize: 20,
@@ -172,13 +190,13 @@ class _EditPageState extends State<EditPage> {
                       GestureDetector(
                         onTap: _selectExpiryDate, // GestureDetectorでonTapを使います。
                         child: CustomDropdownButton(
-                          hint: '賞味期限: ${expiryDate != null ? expiryDate!.split(' ')[0] : "3/02"}',                          items: [/* 他のドロップダウンアイテム */],
+                          hint: '賞味期限:${editedExpiryDate ??  widget.expiryDate!.split('/')[1] + '/' + widget.expiryDate!.split('/')[2] }',                           items: [/* 他のドロップダウンアイテム */],
                           onChanged: (String? value) {
                             setState(() {
-                              expiryDate = value;
+                              editedExpiryDate = value;
                             });
                           },
-                          value: expiryDate,
+                          value: editedExpiryDate,
                           buttonWidth: 230,
                           buttonHeight: 40,
                           textSize: 20,
@@ -195,7 +213,7 @@ class _EditPageState extends State<EditPage> {
                         height: 15,
                       ),
                       CustomDropdownButton(
-                        hint: '量:1/4',
+                        hint: '量:${widget.quantity}',
                         items: [
                           DropdownMenuItem(value: '肉', child: Text('肉')),
                           DropdownMenuItem(value: '魚', child: Text('魚')),
@@ -207,10 +225,10 @@ class _EditPageState extends State<EditPage> {
                         ],
                         onChanged: (String? value) {
                           setState(() {
-                            quantity = value;
+                            editedQuantity = value;
                           });
                         },
-                        value: quantity,
+                        value: editedQuantity,
                         buttonWidth: 230,
                         buttonHeight: 40,
                         textSize: 20,
@@ -243,7 +261,7 @@ class _EditPageState extends State<EditPage> {
                         child: TextField(
                           onChanged: (value) {
                             setState(() {
-                              memo = value;
+                              editedMemo = value;
                             });
                           },
                           style: TextStyle(

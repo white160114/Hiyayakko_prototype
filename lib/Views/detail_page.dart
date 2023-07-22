@@ -1,10 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Arguments/detail_to_edit.dart';
 
 import '../Components/Button_component.dart';
 import '../Components/Colors_component.dart';
 
 class DetailPage extends StatelessWidget{
+  String? name;
+  String? category;
+  String? expiryDate;
+  String? quantity;
+  String? imagePath;
+  DetailPage({this.name,this.category,this.expiryDate,this.quantity,this.imagePath, Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +38,6 @@ class DetailPage extends StatelessWidget{
                     '詳細',
                     style: TextStyle(
                       fontSize: 30,
-                      // fontWeight: FontWeight.bold,
                       color: Colors_component.titleColor,
                     ),
                   ),
@@ -75,7 +82,7 @@ class DetailPage extends StatelessWidget{
                       padding: EdgeInsets.only(top: 0),
                       child: ElevatedButton(
                         onPressed: (){
-                          Navigator.pushNamed(context, '/edit');
+                          Navigator.pushNamed(context, '/edit',arguments: DetailToEdit(name, category, expiryDate, quantity, imagePath));
                         },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -127,20 +134,20 @@ class DetailPage extends StatelessWidget{
                 child: Column(
                 children: [
                 Image.asset(
-                  'lib/Views/Images/bigexamplemeat.png',
+                  '$imagePath',
                   height: 200, // 新しい高さを指定
                   width: 200, // 新しい幅を指定
                 ),
                   SizedBox(height: 0,),
                   CustomContainer(
-                    text: '名前；馬肉',
+                    text: '名前:$name',
                   ),
                   SizedBox(height: 15,),
-                  CustomContainer(text: 'カテゴリー:肉'),
+                  CustomContainer(text: 'カテゴリー:$category'),
                   SizedBox(height: 15,),
-                  CustomContainer(text: '賞味期限:7/2'),
+                  CustomContainer(text: '賞味期限:${expiryDate != null ? expiryDate!.split('/')[1] + '/' + expiryDate!.split('/')[2] : ''}'),
                   SizedBox(height: 15,),
-                  CustomContainer(text: '量:1/4'),
+                  CustomContainer(text: '量:$quantity'),
                   SizedBox(height: 15,),
                   CustomContainer(
                       text: 'メモ:',
