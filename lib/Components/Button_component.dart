@@ -176,10 +176,10 @@ class CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-    onTap: (){
+        onTap: (){
       Navigator.pushNamed(context, '/detail');
     },
-      child:Container(
+    child:Container(
       alignment: Alignment.bottomCenter,
       child: Column(
         children: [
@@ -293,6 +293,14 @@ class CustomDropdownButton extends StatefulWidget {
   final double buttonWidth;  // ボタンの幅
   final double buttonHeight;  // ボタンの高さ
   final double textSize;  // 文字の大きさ
+  final double borderRadius;
+  final textcolor;
+  final TextAlign hintTextAlign;
+  final double shadowBlurRadius; // 影のぼかし半径
+  final double shadowSpreadRadius; // 影の広がり半径
+  final Offset? shadowOffset; // 影のオフセット
+  final Color? shadowColor; // 影の色
+
 
   CustomDropdownButton({
     required this.hint,
@@ -302,6 +310,13 @@ class CustomDropdownButton extends StatefulWidget {
     this.buttonWidth = 270,
     this.buttonHeight = 60,
     this.textSize = 16,
+    this.borderRadius = 16,
+    this.textcolor = Colors.black,
+    this.hintTextAlign = TextAlign.center,
+    this.shadowBlurRadius = 0.0, // 影なしにするために0.0に設定
+    this.shadowSpreadRadius = 0.0, // 影なしにするために0.0に設定
+    this.shadowOffset, // 追加：影のオフセット
+    this.shadowColor, // 影なしにするためにnullに設定
   });
 
   @override
@@ -328,7 +343,17 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           color: Colors.black12,  // 枠線の色
           width: 1.0,
         ),
-        borderRadius: BorderRadius.circular(16),  // 角丸の半径
+        borderRadius: BorderRadius.circular(widget.borderRadius),  // 角丸の半径
+        boxShadow: widget.shadowColor != null
+            ? [
+          BoxShadow(
+            color: widget.shadowColor!,
+            blurRadius: widget.shadowBlurRadius,
+            spreadRadius: widget.shadowSpreadRadius,
+            offset: widget.shadowOffset ?? Offset.zero,
+          ),
+        ]
+            : null, // 影がnullの場合はnullを設定
       ),
       child: DropdownButtonHideUnderline(
         child: ButtonTheme(
@@ -336,13 +361,14 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           child: DropdownButton<String>(
             isExpanded: true,
             value: selectedValue,
-            hint: Align(
-              alignment: Alignment.center,
+            hint:
+            Container(
+              alignment: _convertTextAlignToAlignment(),
               child: Text(
                 selectedValue ?? widget.hint,
                 style: TextStyle(
-                  fontSize: widget.textSize,  // 文字のサイズ
-                  color: Colors.black,
+                  fontSize: widget.textSize,
+                  color: widget.textcolor,
                 ),
               ),
             ),
@@ -376,6 +402,20 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
       ),
     );
   }
+  AlignmentGeometry _convertTextAlignToAlignment() {
+    switch (widget.hintTextAlign) {
+      case TextAlign.center:
+        return Alignment.center;
+      case TextAlign.left:
+        return Alignment.centerLeft;
+      case TextAlign.right:
+        return Alignment.centerRight;
+      case TextAlign.justify:
+      case TextAlign.start:
+      case TextAlign.end:
+        return Alignment.center;
+    }
+  }
 }
 
 //テキスト入力
@@ -385,6 +425,9 @@ class CustomTextField extends StatefulWidget {
   final double height;
   final double textSize;
   final ValueChanged<String>? onChanged;
+  final double borderRadius;  //角のマルサ
+  final TextAlign textAlign;
+  final Color textcolor;
 
   const CustomTextField({
     Key? key,
@@ -392,6 +435,9 @@ class CustomTextField extends StatefulWidget {
     this.width = 270,
     this.height = 60,
     this.textSize = 12,
+    this.borderRadius =15,
+    this.textAlign = TextAlign.center,
+    this.textcolor = Colors.black,
     this.onChanged,
   }) : super(key: key);
 
@@ -414,7 +460,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       width: widget.width,
       height: widget.height,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(widget.borderRadius),
         color: Color(0xFFF5F5F5),
         border: Border.all(
           color: Colors.black12,
@@ -431,7 +477,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               hintText: widget.hintText,
               hintStyle: TextStyle(fontSize: widget.textSize),
             ),
-            textAlign: TextAlign.center,
+            textAlign: widget.textAlign,
             style: TextStyle(fontSize: widget.textSize),
           ),
         ),
