@@ -105,15 +105,15 @@ class FoodPage extends StatelessWidget{
                 CategoryWidget(
                   name: '馬肉',
                   category: '肉',
-                  expiryDate: '2023/5/39',
+                  expiryDate: '2023/5/19',
                   quantity: '残り使ってない',
                   imagePath: 'lib/Views/Images/examplemeat.png',
                 ),
                 CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
+                  name: '魚',
+                  category: '魚',
+                  expiryDate: '2023/6/19',
+                  quantity: '残り半分',
                   imagePath: 'lib/Views/Images/examplemeat.png',
                 ),
 
