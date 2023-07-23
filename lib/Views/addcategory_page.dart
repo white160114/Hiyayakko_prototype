@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Arguments/add_to_food.dart';
 
 import '../Components/Button_component.dart';
 import '../Components/Colors_component.dart';
@@ -12,8 +13,9 @@ class AddCategoryPage extends StatefulWidget {
 class _AddCategoryPageState extends State<AddCategoryPage> {
   String? category;
   String? expiryDate; //賞味期限
-  String? foodname;
-  String? quantity;   //量
+  String? foodName;
+  String? quantity;//量
+  String? imagePath = 'lib/Views/Images/examplemeat.png';
   String? memo;
   bool showInputFields = false;
 
@@ -40,6 +42,18 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
     }
   }
 
+  void _onCompleteButtonPressed() {
+    if (category != null && expiryDate != null) {
+      CategoryWidget newCategoryWidget = CategoryWidget(
+        foodName: foodName,
+        category: category,
+        expiryDate: expiryDate,
+        quantity: quantity,
+        imagePath: imagePath,
+      );
+      Navigator.pop(context, newCategoryWidget);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +90,8 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                 ),
                 CompleteButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/food');
+                    _onCompleteButtonPressed();
+                    // Navigator.pushNamed(context, '/food',arguments: AddToFood(foodName,category,expiryDate,quantity,imagePath,));
                   },
                 ),
               ],
@@ -99,7 +114,8 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
               Positioned(
                 top: 0,
                 left: 65,
-                child: GestureDetector(
+                child:
+                GestureDetector(
                   onTap: () {
                     // コンテナがタップされたときの処理をここに記述
 
@@ -270,7 +286,9 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                         textSize: 20,
                         textAlign: TextAlign.start,
                         onChanged: (value) {
-                          foodname = value;
+                          setState(() {
+                            foodName = value;
+                          });
                         },
                       ),
                     SizedBox(height: 10),
@@ -283,7 +301,9 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                         textSize: 20,
                         textAlign: TextAlign.start,
                         onChanged: (value) {
-                          foodname = value;
+                          setState(() {
+                            quantity = value;
+                          });
                         },
                       ),
                     SizedBox(height: 10),

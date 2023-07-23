@@ -4,9 +4,33 @@ import 'package:flutter/material.dart';
 import '../Components/Button_component.dart';
 import '../Components/Colors_component.dart';
 
-class FoodPage extends StatelessWidget{
+class FoodPage extends StatefulWidget {
+  String? foodName;
+  String? category;
+  String? expiryDate;
+  String? quantity;
+  String? imagePath;
+
+  FoodPage({this.foodName, this.category, this.expiryDate, this.quantity, this.imagePath, Key? key})
+      : super(key: key);
+
+  @override
+  _FoodPageState createState() => _FoodPageState();
+}
+
+class _FoodPageState extends State<FoodPage> {
+  List<Widget> categoryWidgets = []; // カテゴリーウィジェットを格納するリスト
+
+  void addNewCategoryWidget(CategoryWidget newCategoryWidget) {
+    setState(() {
+      categoryWidgets.add(newCategoryWidget);
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Column(
         children: [
@@ -65,7 +89,6 @@ class FoodPage extends StatelessWidget{
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Navigator.pushNamed(context, '/detail');
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -93,7 +116,11 @@ class FoodPage extends StatelessWidget{
                 ),
                 SizedBox(width: 115,),
                 CustomAddButton(onPressed: (){
-                  Navigator.pushNamed(context, '/add_category');
+                  Navigator.pushNamed(context, '/add_category').then((result) {
+                    if (result != null && result is CategoryWidget) {
+                      addNewCategoryWidget(result);
+                    }
+                  });
                 }),
               ],
             ),
@@ -104,21 +131,7 @@ class FoodPage extends StatelessWidget{
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
-                  imagePath: 'lib/Views/Images/examplemeat.png',
-                ),
-                CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
-                  imagePath: 'lib/Views/Images/examplemeat.png',
-                ),
-
+                ...categoryWidgets,
               ],
             ),
           ),
