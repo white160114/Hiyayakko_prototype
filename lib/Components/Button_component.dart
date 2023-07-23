@@ -159,14 +159,14 @@ class CustomAddButton extends StatelessWidget {
 
 //カテゴリー
 class CategoryWidget extends StatelessWidget {
-  final String name;
-  final String category;
-  final String expiryDate;
-  final String quantity;
-  final String imagePath;
+  final String? foodName;
+  final String? category;
+  final String? expiryDate;
+  final String? quantity;
+  final String? imagePath;
 
   CategoryWidget({
-    required this.name,
+    required this.foodName,
     required this.category,
     required this.expiryDate,
     required this.quantity,
@@ -183,7 +183,7 @@ class CategoryWidget extends StatelessWidget {
             children: [
               SizedBox(width: 30,),
               Image.asset(
-                imagePath,
+                imagePath!,
                 width: 75,
                 height: 75,
               ),
@@ -198,7 +198,7 @@ class CategoryWidget extends StatelessWidget {
                         SizedBox(width: 20,),
                         Expanded(
                           child: Text(
-                            '名前: $name',
+                            '名前: ${foodName ?? ''}',
                           ),
                         ),
                         SizedBox(width: 0,),
@@ -218,7 +218,7 @@ class CategoryWidget extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 5,),
-                        Text('量: $quantity'),
+                        Text('量: ${quantity ?? ''}'),
                       ],
                     )
                   ],
