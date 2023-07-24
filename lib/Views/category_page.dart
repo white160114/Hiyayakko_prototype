@@ -5,8 +5,12 @@ import 'package:hiyayakko/Components/Colors_component.dart';
 import '../Components/Button_component.dart';
 
 class CategoryPage extends StatelessWidget{
+  List category;
+  CategoryPage({required this.category, super.key});
+
   @override
   Widget build(BuildContext context) {
+    category.forEach(print);
     return Scaffold(
      body: Column(
        children:[

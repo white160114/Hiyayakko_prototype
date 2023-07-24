@@ -57,7 +57,7 @@ class _MyApp extends StatelessWidget {
         primaryColor: Colors.cyan,
       ),
 
-      initialRoute: '/firstPage',
+      initialRoute: '/category',
 
       routes: {
         '/': (context) => SizedBox(),
