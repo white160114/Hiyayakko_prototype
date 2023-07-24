@@ -10,10 +10,10 @@ import 'package:hiyayakko/Controllers/setting2_controller.dart';
 import 'package:hiyayakko/Controllers/setting3_controller.dart';
 import 'package:hiyayakko/Controllers/ctegory_controller.dart';
 import 'package:hiyayakko/Controllers/meat_controller.dart';
+import 'package:hiyayakko/Controllers/addcategory_controller.dart';
 import 'package:hiyayakko/Controllers/food_controller.dart';
 import 'package:hiyayakko/Controllers/test1_controller.dart';
 import 'package:provider/provider.dart';
-
 import 'Controllers/home_controller.dart';
 import 'Controllers/invitation_form_controller.dart';
 import 'Controllers/invitation_success_controller.dart';
@@ -79,6 +79,7 @@ class _MyApp extends StatelessWidget {
         '/category': (context) => CategoryController(),
         '/meat' :(context) => MeatController(),
         '/food' :(context) => FoodController(),
+        '/add_category' :(context) => AddCategoryController(),
       },
     );
   }

@@ -159,14 +159,14 @@ class CustomAddButton extends StatelessWidget {
 
 //カテゴリー
 class CategoryWidget extends StatelessWidget {
-  final String name;
-  final String category;
-  final String expiryDate;
-  final String quantity;
-  final String imagePath;
+  final String? foodName;
+  final String? category;
+  final String? expiryDate;
+  final String? quantity;
+  final String? imagePath;
 
   CategoryWidget({
-    required this.name,
+    required this.foodName,
     required this.category,
     required this.expiryDate,
     required this.quantity,
@@ -183,7 +183,7 @@ class CategoryWidget extends StatelessWidget {
             children: [
               SizedBox(width: 30,),
               Image.asset(
-                imagePath,
+                imagePath!,
                 width: 75,
                 height: 75,
               ),
@@ -198,7 +198,7 @@ class CategoryWidget extends StatelessWidget {
                         SizedBox(width: 20,),
                         Expanded(
                           child: Text(
-                            '名前: $name',
+                            '名前: ${foodName ?? ''}',
                           ),
                         ),
                         SizedBox(width: 0,),
@@ -218,7 +218,7 @@ class CategoryWidget extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 5,),
-                        Text('量: $quantity'),
+                        Text('量: ${quantity ?? ''}'),
                       ],
                     )
                   ],
@@ -288,6 +288,8 @@ class CustomDropdownButton extends StatefulWidget {
   final double buttonWidth;  // ボタンの幅
   final double buttonHeight;  // ボタンの高さ
   final double textSize;  // 文字の大きさ
+  final double borderRadius;
+  final textcolor;
 
   CustomDropdownButton({
     required this.hint,
@@ -297,6 +299,8 @@ class CustomDropdownButton extends StatefulWidget {
     this.buttonWidth = 270,
     this.buttonHeight = 60,
     this.textSize = 16,
+    this.borderRadius = 16,
+    this.textcolor = Colors.black,
   });
 
   @override
@@ -323,7 +327,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           color: Colors.black12,  // 枠線の色
           width: 1.0,
         ),
-        borderRadius: BorderRadius.circular(16),  // 角丸の半径
+        borderRadius: BorderRadius.circular(widget.borderRadius),  // 角丸の半径
       ),
       child: DropdownButtonHideUnderline(
         child: ButtonTheme(
@@ -337,7 +341,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                 selectedValue ?? widget.hint,
                 style: TextStyle(
                   fontSize: widget.textSize,  // 文字のサイズ
-                  color: Colors.black,
+                  color: widget.textcolor,
                 ),
               ),
             ),
@@ -380,6 +384,9 @@ class CustomTextField extends StatefulWidget {
   final double height;
   final double textSize;
   final ValueChanged<String>? onChanged;
+  final double borderRadius;  //角のマルサ
+  final TextAlign textAlign;
+  final Color textcolor;
 
   const CustomTextField({
     Key? key,
@@ -387,6 +394,9 @@ class CustomTextField extends StatefulWidget {
     this.width = 270,
     this.height = 60,
     this.textSize = 12,
+    this.borderRadius =15,
+    this.textAlign = TextAlign.center,
+    this.textcolor = Colors.black,
     this.onChanged,
   }) : super(key: key);
 
@@ -409,7 +419,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       width: widget.width,
       height: widget.height,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(widget.borderRadius),
         color: Color(0xFFF5F5F5),
         border: Border.all(
           color: Colors.black12,
@@ -426,7 +436,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               hintText: widget.hintText,
               hintStyle: TextStyle(fontSize: widget.textSize),
             ),
-            textAlign: TextAlign.center,
+            textAlign: widget.textAlign,
             style: TextStyle(fontSize: widget.textSize),
           ),
         ),
