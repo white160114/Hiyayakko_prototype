@@ -301,12 +301,15 @@ class ProfielPage extends StatelessWidget {
                 },
                     () {
                   // 3番目の画像がタップされたときの処理
+                  Navigator.pushNamed(context, '/home');
                 },
                     () {
                   // 4番目の画像がタップされたときの処理
+                  Navigator.pushNamed(context, '/category');//後で全体表示に変える
                 },
                     () {
                   // 5番目の画像がタップされたときの処理
+                  Navigator.pushNamed(context, '/profiel');
                 },
               ]
           )

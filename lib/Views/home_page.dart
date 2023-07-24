@@ -77,19 +77,23 @@ class HomePage extends StatelessWidget {
             onTapCallbacks: [
                   () {
                 // 1番目の画像がタップされたときの処理
-                Navigator.pushNamed(context, "/welcomeRef");
+                //      Navigator.pushNamed(context, "/welcomeRef");
               },
                   () {
-                // 2番目の画像がタップされたときの処理
+              // 2番目の画像がタップされたときの処理
+              //       Navigator.pushNamed(context, '/setting/page2');
               },
                   () {
                 // 3番目の画像がタップされたときの処理
+                    Navigator.pushNamed(context, '/home');
               },
                   () {
                 // 4番目の画像がタップされたときの処理
+                    Navigator.pushNamed(context, '/category');//後で全体表示に変える
               },
                   () {
                 // 5番目の画像がタップされたときの処理
+                    Navigator.pushNamed(context, '/profiel');
               },
             ],
           ),
