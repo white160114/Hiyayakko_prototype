@@ -13,6 +13,13 @@ import 'package:provider/provider.dart';
 import 'Controllers/home_controller.dart';
 import 'Controllers/invitation_form_controller.dart';
 import 'Controllers/invitation_success_controller.dart';
+import 'package:hiyayakko/Controllers/getcode_controller.dart';
+import 'package:hiyayakko/Controllers/test1_controller.dart';
+import 'package:hiyayakko/Views/editpro_page.dart';
+import 'package:hiyayakko/Views/profiel_page.dart';
+
+import 'Controllers/editpro_controller.dart';
+import 'Controllers/profiel_controller.dart';
 import 'Controllers/test2_controller.dart';
 import 'Controllers/new_ref_welcome_controller.dart';
 import 'firebase_options.dart';
@@ -61,6 +68,9 @@ class _MyApp extends StatelessWidget {
         '/home': (context) => HomeController(),
         '/test': (context) => Test1Controller(),
         '/test2page': (context) => Test2Controller(),
+        '/profiel': (context) => ProfielController(),
+        '/edit': (context) => EditproController(),
+        '/getcode':(context) => GetCodeController(),
       },
     );
   }
