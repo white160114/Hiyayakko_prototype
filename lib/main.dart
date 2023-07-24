@@ -48,6 +48,8 @@ class _MyApp extends StatelessWidget {
       ),
       initialRoute: '/firstPage',
       routes: {
+        //ルーディング例
+        //url: (context) => ページクラス
         '/': (context) => SizedBox(),
         '/firstPage': (context) => FirstController(),
         '/login': (context) => LoginController(),

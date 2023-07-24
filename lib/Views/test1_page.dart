@@ -18,9 +18,10 @@ class Test1Page extends StatelessWidget {
       body: Column(
         children: [
           Text("受け渡しテスト" + testVariable),
-          Text("モデルテスト：" + isTrue(true)),
+          Text("モデルテスト：" + isTrue(true)),//isTrueはModelesフォルダーの下にあるファイルから持ってきた変数です
           ElevatedButton(
               onPressed: (){
+                //次のページへ値を渡す際値受け渡しのためのクラス(Argumentsフォルダー下のファイル)を作って渡しています。
                 Navigator.pushNamed(context, '/test2page', arguments: Test1ToTest2("テストだよ", 1));
               },
               child: Text("次のページへ"),
