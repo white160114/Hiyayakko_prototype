@@ -8,7 +8,6 @@ class Test2Controller extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //test1から渡されてきた値を受け取っています
     final Test1ToTest2 args = ModalRoute.of(context)!.settings.arguments as Test1ToTest2;
     int testNum = 5 * args.num;
     return Test2Page(testNum: testNum,);
