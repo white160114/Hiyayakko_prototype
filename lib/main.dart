@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 import 'package:hiyayakko/Arguments/account_data_notifier.dart';
 import 'package:hiyayakko/Controllers/first_controller.dart';
 import 'package:hiyayakko/Controllers/login_controller.dart';
@@ -7,6 +8,8 @@ import 'package:hiyayakko/Controllers/new_ref_form_controller.dart';
 import 'package:hiyayakko/Controllers/setting1_controller.dart';
 import 'package:hiyayakko/Controllers/setting2_controller.dart';
 import 'package:hiyayakko/Controllers/setting3_controller.dart';
+import 'package:hiyayakko/Controllers/ctegory_controller.dart';
+import 'package:hiyayakko/Controllers/meat_controller.dart';
 import 'package:hiyayakko/Controllers/test1_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -53,7 +56,9 @@ class _MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.cyan,
       ),
+
       initialRoute: '/firstPage',
+
       routes: {
         '/': (context) => SizedBox(),
         '/firstPage': (context) => FirstController(),
@@ -71,6 +76,8 @@ class _MyApp extends StatelessWidget {
         '/profiel': (context) => ProfielController(),
         '/edit': (context) => EditproController(),
         '/getcode':(context) => GetCodeController(),
+        '/category': (context) => CategoryController(),
+        '/meat' :(context) => MeatController(),
       },
     );
   }
