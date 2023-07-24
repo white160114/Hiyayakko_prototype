@@ -151,6 +151,7 @@ class CustomAddButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
         ),
         fixedSize: Size(110, 45),
+        elevation: 10,
       ),
     );
   }
@@ -432,5 +433,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
       ),
     );
   }
+
 }
 

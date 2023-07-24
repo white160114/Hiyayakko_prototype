@@ -10,6 +10,7 @@ import 'package:hiyayakko/Controllers/setting2_controller.dart';
 import 'package:hiyayakko/Controllers/setting3_controller.dart';
 import 'package:hiyayakko/Controllers/ctegory_controller.dart';
 import 'package:hiyayakko/Controllers/meat_controller.dart';
+import 'package:hiyayakko/Controllers/food_controller.dart';
 import 'package:hiyayakko/Controllers/test1_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -58,7 +59,6 @@ class _MyApp extends StatelessWidget {
       ),
 
       initialRoute: '/firstPage',
-
       routes: {
         '/': (context) => SizedBox(),
         '/firstPage': (context) => FirstController(),
@@ -78,6 +78,7 @@ class _MyApp extends StatelessWidget {
         '/getcode':(context) => GetCodeController(),
         '/category': (context) => CategoryController(),
         '/meat' :(context) => MeatController(),
+        '/food' :(context) => FoodController(),
       },
     );
   }
