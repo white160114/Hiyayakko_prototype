@@ -15,18 +15,19 @@ Future<Map> getAllInRef() async {
         thing['categoryName'] = getThing.get("categoryName");
         thing['imageName'] = getThing.get("imageName");
         thing['amount'] = getThing.get("amount");
-        DateTime date = getThing.get("limitDay").toDate();
-        thing['limitDay'] = date.year.toString() + "/" + date.month.toString() + "/" + date.day.toString();
+        // DateTime date = getThing.get("limitDay").toDate();
+        // date.year.toString() + "/" + date.month.toString() + "/" + date.day.toString();
+        thing['limitDay'] = getThing.get("limitDay");
         inRef[i] = thing;
       }
 
-      //ちゃんとMap型でとれたのかを確認する
-      // inRef.forEach((key, value) {
-      //   print("--------------------------------------");
-      //   value.forEach((key, value) {
-      //     print(key + ": " + value.toString());
-      //   });
-      // });
+      // ちゃんとMap型でとれたのかを確認する
+      inRef.forEach((key, value) {
+        print("--------------------------------------");
+        value.forEach((key, value) {
+          print(key + ": " + value.toString());
+        });
+      });
     }
   );
 
