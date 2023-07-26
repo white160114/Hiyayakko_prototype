@@ -5,13 +5,7 @@ import '../Components/Button_component.dart';
 import '../Components/Colors_component.dart';
 
 class FoodPage extends StatefulWidget {
-  String? foodName;
-  String? category;
-  String? expiryDate;
-  String? quantity;
-  String? imagePath;
-
-  FoodPage({this.foodName, this.category, this.expiryDate, this.quantity, this.imagePath, Key? key})
+   FoodPage({Key? key})
       : super(key: key);
 
   @override

@@ -5,6 +5,7 @@ import 'package:hiyayakko/Arguments/account_data_notifier.dart';
 import 'package:hiyayakko/Controllers/first_controller.dart';
 import 'package:hiyayakko/Controllers/login_controller.dart';
 import 'package:hiyayakko/Controllers/new_ref_form_controller.dart';
+import 'package:hiyayakko/Controllers/post_add_category_controller.dart';
 import 'package:hiyayakko/Controllers/setting1_controller.dart';
 import 'package:hiyayakko/Controllers/setting2_controller.dart';
 import 'package:hiyayakko/Controllers/setting3_controller.dart';
@@ -59,7 +60,7 @@ class _MyApp extends StatelessWidget {
       ),
 
 
-      initialRoute: '/meat',
+      initialRoute: '/food',
 
       routes: {
         '/': (context) => SizedBox(),
@@ -81,7 +82,8 @@ class _MyApp extends StatelessWidget {
         '/category': (context) => CategoryController(),
         '/meat' :(context) => MeatController(),
         '/food' :(context) => FoodController(),
-        '/add_category' :(context) => AddCategoryController(),
+        'get/add_category' :(context) => AddCategoryController(),
+        'post/add_category' : (context) => PostAddCategoryController(),
       },
     );
   }
