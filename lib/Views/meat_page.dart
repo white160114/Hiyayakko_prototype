@@ -5,6 +5,9 @@ import '../Components/Button_component.dart';
 import '../Components/Colors_component.dart';
 
 class MeatPage extends StatelessWidget{
+  Map<dynamic, dynamic> inRef;
+  MeatPage({required this.inRef, super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,45 +94,18 @@ class MeatPage extends StatelessWidget{
           ),
           SizedBox(height: 10,),
           Expanded(
-            child: ListView(
+            child: ListView.builder(
+              itemCount: inRef.length,
               padding: EdgeInsets.zero,
-              children: [
-                CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
-                  imagePath: 'lib/Views/Images/examplemeat.png',
-                ),
-                CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
-                  imagePath: 'lib/Views/Images/examplemeat.png',
-                ),
-                CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
-                  imagePath: 'lib/Views/Images/examplemeat.png',
-                ),
-                CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
-                  imagePath: 'lib/Views/Images/examplemeat.png',
-                ),
-                CategoryWidget(
-                  name: '馬肉',
-                  category: '肉',
-                  expiryDate: '2023/5/39',
-                  quantity: '残り使ってない',
-                  imagePath: 'lib/Views/Images/examplemeat.png',
-                ),
-              ],
+              itemBuilder: (context, index) {
+                return CategoryWidget(
+                  foodName: inRef[index]["name"],
+                  category: inRef[index]["categoryName"],
+                  expiryDate: inRef[index]["limitDay"],
+                  quantity: inRef[index]["amount"],
+                  imagePath: 'lib/Views/Images/' + inRef[index]["imageName"],
+                );
+              },
             ),
           ),
           SizedBox(height: 100,),
