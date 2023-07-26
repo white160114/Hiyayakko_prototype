@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hiyayakko/Arguments/add_to_food.dart';
+import 'package:hiyayakko/Arguments/add_to_posh_add.dart';
 
 import '../Components/Button_component.dart';
 import '../Components/Colors_component.dart';
@@ -15,7 +15,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
   String? expiryDate; //賞味期限
   String? foodName;
   String? quantity;//量
-  String? imagePath = 'lib/Views/Images/examplemeat.png';
+  String? imagePath = 'examplemeat.png';
   String? memo;
   bool showInputFields = false;
 
@@ -90,8 +90,13 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                 ),
                 CompleteButton(
                   onPressed: () {
-                    _onCompleteButtonPressed();
-                    // Navigator.pushNamed(context, '/food',arguments: AddToFood(foodName,category,expiryDate,quantity,imagePath,));
+                    print(category);
+                    print(expiryDate);
+                    print(foodName);
+                    print(quantity);
+                    print(memo);
+
+                    Navigator.pushNamed(context, 'post/add_category', arguments: AddToPostAdd(foodName, category, expiryDate, quantity, imagePath));
                   },
                 ),
               ],
