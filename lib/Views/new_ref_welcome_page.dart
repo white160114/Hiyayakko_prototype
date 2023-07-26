@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hiyayakko/Arguments/new_ref_welcome_to_home.dart';
 import 'package:hiyayakko/Views/setting1_page.dart';
 import 'home_page.dart';
 
@@ -41,7 +42,7 @@ class NewRefWelcomePage extends StatelessWidget {
             buttonText: '次へ',
             onPressed: () {
               //画面遷移
-              Navigator.pushNamed(context, "/home");
+              Navigator.pushNamed(context, "/home", arguments: NewRefWelcomeToHome(refname));
             },
           ),
         ],
