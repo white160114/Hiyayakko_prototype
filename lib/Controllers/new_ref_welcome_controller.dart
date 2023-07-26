@@ -9,7 +9,7 @@ class NewRefWelcomeController extends StatelessWidget {
   Widget build(BuildContext context) {
     final NewRefFormToNewRefWelcome args = ModalRoute.of(context)!.settings.arguments as NewRefFormToNewRefWelcome;
     createRef(args.refName, args.refID);
-    return NewRefWelcomePage();
+    return NewRefWelcomePage(refname: args.refName,);
   }
 
 }
