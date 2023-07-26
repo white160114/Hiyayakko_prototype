@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'new_ref_welcome_page.dart';
 
 class HomePage extends StatelessWidget {
-  final String? refname;
-  HomePage({this.refname});
+  // final String? refname;
+  // HomePage({this.refname});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               Text(
-                '$refnameの冷蔵庫',
+                'ゆうきの冷蔵庫',
                 style: TextStyle(
                   fontSize: 30,
                 ),
@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
               },
                   () {
                 // 4番目の画像がタップされたときの処理
-                    Navigator.pushNamed(context, '/category');//後で全体表示に変える
+                    Navigator.pushNamed(context, '/meat');//後で全体表示に変える
               },
                   () {
                 // 5番目の画像がタップされたときの処理

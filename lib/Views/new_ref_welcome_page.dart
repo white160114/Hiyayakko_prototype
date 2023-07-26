@@ -5,8 +5,8 @@ import 'package:hiyayakko/Views/setting1_page.dart';
 import 'home_page.dart';
 
 class NewRefWelcomePage extends StatelessWidget {
-  final String? refname;
-  NewRefWelcomePage({this.refname});
+  // final String? refname;
+  // NewRefWelcomePage({this.refname});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class NewRefWelcomePage extends StatelessWidget {
           ),
           SizedBox(height: 230,),
           Text(
-            '$refnameの冷蔵庫へ\nようこそ！！',
+            'ゆうきの冷蔵庫へ\nようこそ！！',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 37,
@@ -42,7 +42,7 @@ class NewRefWelcomePage extends StatelessWidget {
             buttonText: '次へ',
             onPressed: () {
               //画面遷移
-              Navigator.pushNamed(context, "/home", arguments: NewRefWelcomeToHome(refname));
+              Navigator.pushNamed(context, "/home");
             },
           ),
         ],
