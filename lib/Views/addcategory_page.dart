@@ -68,7 +68,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                   padding: EdgeInsets.only(left: 30, top: 40, right: 10),
                   child: CustomBackButton(
                     onPressed: () {
-                      Navigator.pop(context); // 1ページ戻る処理
+                      Navigator.pushNamed(context, "/meat"); // 1ページ戻る処理
                     },
                   ),
                 ),
@@ -348,6 +348,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
               },
                   () {
                 // 3番目の画像がタップされたときの処理
+                  Navigator.pushNamed(context, '/home');
               },
                   () {
                 // 4番目の画像がタップされたときの処理

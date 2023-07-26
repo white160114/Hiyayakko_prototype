@@ -60,7 +60,7 @@ class _MyApp extends StatelessWidget {
       ),
 
 
-      initialRoute: '/food',
+      initialRoute: '/firstPage',
 
       routes: {
         '/': (context) => SizedBox(),

@@ -20,7 +20,7 @@ class MeatPage extends StatelessWidget{
                     padding: EdgeInsets.only(left: 30, top: 40, right: 10),
                     child: CustomBackButton(
                       onPressed: () {
-                        Navigator.pop(context); // 1ページ戻る処理
+                        Navigator.pushNamed(context, '/home');
                       },
                     )
                 ),
@@ -50,7 +50,7 @@ class MeatPage extends StatelessWidget{
                   padding: EdgeInsets.only(top: 40),
                   child:CustomAddButton(
                       onPressed: (){
-
+                        Navigator.pushNamed(context, "get/add_category");
                       },
                   )
                 ),
@@ -126,6 +126,7 @@ class MeatPage extends StatelessWidget{
               },
                   () {
                 // 3番目の画像がタップされたときの処理
+                    Navigator.pushNamed(context, '/home');
               },
                   () {
                 // 4番目の画像がタップされたときの処理

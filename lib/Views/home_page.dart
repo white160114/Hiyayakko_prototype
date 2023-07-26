@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
               },
                   () {
                 // 4番目の画像がタップされたときの処理
-                    Navigator.pushNamed(context, '/category');//後で全体表示に変える
+                    Navigator.pushNamed(context, '/meat');//後で全体表示に変える
               },
                   () {
                 // 5番目の画像がタップされたときの処理
